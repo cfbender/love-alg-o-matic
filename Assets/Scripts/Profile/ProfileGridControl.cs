@@ -36,6 +36,17 @@ public class ProfileGridControl : MonoBehaviour
         _profileButtonControls[profile].SetTileActive(active);
     }
 
+    public void RemoveAndReplaceMatchedPair(Profile profile1, Profile profile2)
+    {
+       var newProfile1 = new Profile(); 
+       var newProfile2 = new Profile();
+
+       _profileButtonControls[newProfile1] = _profileButtonControls[profile1];
+       _profileButtonControls[newProfile1].AssignProfile(newProfile1);
+       _profileButtonControls[newProfile2] = _profileButtonControls[profile2];
+       _profileButtonControls[newProfile2].AssignProfile(newProfile2);
+    }
+
     private void ClearExistingProfiles()
     {
         if (_profileButtonControls == null)

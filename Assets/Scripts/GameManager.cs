@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
         // reset selected profiles and buttons
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile1, false);
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile2, false);
+        
+        Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
         _selectedProfile1 = null;
         _selectedProfile2 = null;
         

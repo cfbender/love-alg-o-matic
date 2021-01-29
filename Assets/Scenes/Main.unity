@@ -1611,9 +1611,9 @@ GameObject:
   - component: {fileID: 1095488183}
   - component: {fileID: 1095488182}
   - component: {fileID: 1095488186}
-  - component: {fileID: 1095488184}
   - component: {fileID: 1095488185}
   - component: {fileID: 1095488187}
+  - component: {fileID: 1095488184}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1656,11 +1656,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095488181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3389e07c64ef4e24da386e6f1ae5f6e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 539ec3b5555d3cb4184156eb769743cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingProfileCount: 20
-  ProfileGridControl: {fileID: 1450732881}
+  maxProfileCount: 20
+  ProfileButtonPrefab: {fileID: 2197334284301885430, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+  ProfileGridUI: {fileID: 1450732879}
   ChatBubblePrefab: {fileID: 1500797203609453817, guid: 7d1b3fcc51be5fe4d8567e983299d9d6, type: 3}
 --- !u!114 &1095488185
 MonoBehaviour:
@@ -1925,7 +1926,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1450732879}
   - component: {fileID: 1450732880}
-  - component: {fileID: 1450732881}
   m_Layer: 5
   m_Name: Profile Grid UI
   m_TagString: Untagged
@@ -1996,19 +1996,6 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 5
---- !u!114 &1450732881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450732878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539ec3b5555d3cb4184156eb769743cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProfileButtonPrefab: {fileID: 2197334284301885430, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
 --- !u!114 &1451497651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 351415427388630830, guid: 22734756e3932b548b69a8bfa1ba1cd8, type: 3}
