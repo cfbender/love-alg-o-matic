@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.9577026, y: -4.3002357}
-  m_SizeDelta: {x: 88.0846, y: 25}
+  m_AnchoredPosition: {x: 15.907299, y: -4.3002357}
+  m_SizeDelta: {x: 175.3125, y: 25}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1500797201916908137
 CanvasRenderer:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -170,7 +170,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 47.5727}
+  m_SizeDelta: {x: 200, y: 47.5727}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1500797203234694006
 CanvasRenderer:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 2
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1500797203609453819
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,5 +259,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b74a7ca30b7043a1f7d36f44ea118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundOffset: {x: 12, y: 20}
+  BackgroundOffset: {x: 30, y: 30}
   DestroyDelay: 3
