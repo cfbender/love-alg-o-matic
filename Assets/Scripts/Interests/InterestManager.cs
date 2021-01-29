@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class InterestManager : MonoBehaviour
 {
-    public List<InterestTemplate> Interests;
+    public List<InterestTemplate> interests;
 
     public List<InterestTemplate> GetInterests()
     {
-       return Interests.OrderBy(a => Guid.NewGuid()).Take(5).ToList();
+       return interests.OrderBy(a => Guid.NewGuid()).Take(5).ToList();
     }
 }
