@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class Profile
 {
@@ -7,9 +6,9 @@ public class Profile
     public List<InterestTemplate> Interests { get; }
 
     private readonly List<string> Names = new List<string>() {"Jimmy Joey", "Tina Tuna", "Paulie Porkchop", "Chris Christie", "Lilly Lollipop", "Sean Swordfish"};
-    public Profile(InterestManager interestManager, Random random)
+    public Profile()
     {
-       Interests = interestManager.GetInterests();
-       Name = Names[random.Next(Names.Count)];
+       Interests = Managers.InterestManager.GetInterests();
+       Name = Names[Managers.ProfileManager.Random.Next(Names.Count)];
     }
 }
