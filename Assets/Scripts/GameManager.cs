@@ -96,14 +96,23 @@ public class GameManager : MonoBehaviour
         Debug.Log($"{_selectedProfile1.Name} matched with {_selectedProfile2.Name} on {matches.Count()} interests.");
         Debug.Log($"Matching interests: {String.Join(", ", matches)}");
 
-            Managers.ScoreManager.AddMatchedPair(_selectedProfile1, _selectedProfile2, matches.Count() < 3);
-            Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
+        Managers.ScoreManager.AddMatchedPair(_selectedProfile1, _selectedProfile2, matches.Count() < 3);
+        Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
 
         _selectedProfile1 = null;
         _selectedProfile2 = null;
 
         Managers.EvaluationManager.ClearEvaluationProfiles();
 
+        if (Managers.ScoreManager.victory == true)
+        {
+            Debug.Log("Victory!");
+        }
+        else if (Managers.ScoreManager.victory == false)
+        {
+
+            Debug.Log("You friggin dingus");
+        }
         _allowSelection = true;
     }
 
