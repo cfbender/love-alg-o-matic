@@ -18,7 +18,6 @@ public class EvaluationManager: MonoBehaviour
     evaluationProfileControl1.ClearProfile();
     evaluationProfileControl2.ClearProfile();
   }
-  // Returns an IEnumerable of different matches that can be counted for score
   public IEnumerable<string> GetMatches(Profile p1, Profile p2)
   {
     return p1.Interests.Where(interest => p2.Interests.Contains(interest)).Select(interest => interest.name);
