@@ -6,12 +6,13 @@ public class Managers : MonoBehaviour
     public static InterestManager InterestManager;
     public static EvaluationManager EvaluationManager;
     public static ProfileGridControl ProfileGridControl;
-    
+    public static ScoreManager ScoreManager; 
     private void Awake()
     {
         GameManager = GetComponent<GameManager>();
         InterestManager = GetComponent<InterestManager>();
         EvaluationManager = GetComponent<EvaluationManager>();
         ProfileGridControl = GetComponent<ProfileGridControl>();
+        ScoreManager = GetComponent<ScoreManager>();
     }
 }
