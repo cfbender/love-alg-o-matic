@@ -1613,6 +1613,7 @@ GameObject:
   - component: {fileID: 1095488186}
   - component: {fileID: 1095488184}
   - component: {fileID: 1095488185}
+  - component: {fileID: 1095488187}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1696,6 +1697,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectionResetDelay: 2
   ChatBubbleCooldown: 5
+--- !u!114 &1095488187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095488181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bc65a3b8f15dd4081a51a95892b79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evaluationProfileControl1: {fileID: 4240288826639831754}
+  evaluationProfileControl2: {fileID: 1451497651}
 --- !u!1001 &1149376055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1994,6 +2009,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProfileButtonPrefab: {fileID: 2197334284301885430, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+--- !u!114 &1451497651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 351415427388630830, guid: 22734756e3932b548b69a8bfa1ba1cd8, type: 3}
+  m_PrefabInstance: {fileID: 35715428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b298914aad04eafb6fe11fe53483e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1489387015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3216,6 +3242,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22734756e3932b548b69a8bfa1ba1cd8, type: 3}
+--- !u!114 &4240288826639831754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 351415427388630830, guid: 22734756e3932b548b69a8bfa1ba1cd8, type: 3}
+  m_PrefabInstance: {fileID: 4240288826639831751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b298914aad04eafb6fe11fe53483e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7338993449068283583 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6845998719428367480, guid: 22734756e3932b548b69a8bfa1ba1cd8, type: 3}

@@ -36,10 +36,12 @@ public class GameManager : MonoBehaviour
             if (_chatBubbleTimer < ChatBubbleCooldown) return;
 
             _chatBubbleCooldownActive = false;
-        }; 
+        }
+
+        ;
 
         if (Random.Range(0f, 1f) <= .9f) return; // small chance each frame to display a new chat bubble
-        
+
         Managers.ProfileManager.DisplayChatBubbleForRandomProfile();
         _chatBubbleCooldownActive = true;
         _chatBubbleTimer = 0;
@@ -52,11 +54,12 @@ public class GameManager : MonoBehaviour
     public void SelectProfile(Profile profile)
     {
         if (!_allowSelection) return;
-        
+
         if (_selectedProfile1 == null)
         {
             _selectedProfile1 = profile;
             Managers.ProfileManager.ProfileGridControl.ActivateProfileButton(profile, true);
+            Managers.EvaluationManager.AssignEvaluationProfile(profile, true);
             Debug.Log($"{profile.Name} set to <color=blue>_selectedProfile1</color>");
             return;
         }
@@ -66,36 +69,38 @@ public class GameManager : MonoBehaviour
         {
             _selectedProfile1 = null;
             Managers.ProfileManager.ProfileGridControl.ActivateProfileButton(profile, false);
+            Managers.EvaluationManager.ClearEvaluationProfiles();
             Debug.Log($"{profile.Name} removed from _selectedProfile1");
             return;
         }
 
         _selectedProfile2 = profile;
         Managers.ProfileManager.ProfileGridControl.ActivateProfileButton(profile, true);
+        Managers.EvaluationManager.AssignEvaluationProfile(profile, false);
         Debug.Log($"{profile.Name} set to <color=teal>_selectedProfile2</color>");
-        var matches = Evaluator.GetMatches(_selectedProfile1, _selectedProfile2);
-        
+        var matches = Managers.EvaluationManager.GetMatches(_selectedProfile1, _selectedProfile2);
+
         Debug.Log($"{_selectedProfile1.Name} matched with {_selectedProfile2.Name} on {matches.Count()} interests.");
-        Debug.Log($"Matching interests: {String.Join(", ",matches)}");
+        Debug.Log($"Matching interests: {String.Join(", ", matches)}");
 
         _allowSelection = false;
-        
+
         StartCoroutine(DelayedReset());
     }
 
     private IEnumerator DelayedReset()
     {
         yield return new WaitForSeconds(SelectionResetDelay);
-        
+
         // reset selected profiles and buttons
         Managers.ProfileManager.ProfileGridControl.ActivateProfileButton(_selectedProfile1, false);
         Managers.ProfileManager.ProfileGridControl.ActivateProfileButton(_selectedProfile2, false);
         _selectedProfile1 = null;
         _selectedProfile2 = null;
+        Managers.EvaluationManager.ClearEvaluationProfiles();
 
         _allowSelection = true;
     }
 
     #endregion
-    
 }

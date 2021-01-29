@@ -15,7 +15,7 @@ public class EvaluationProfileControl : MonoBehaviour
     private void Start()
     {
         _nameText = GetComponentInChildren<TextMeshProUGUI>();
-        RemoveProfile();
+        ClearProfile();
     }
     
     public void AssignProfile(Profile profile)
@@ -25,7 +25,7 @@ public class EvaluationProfileControl : MonoBehaviour
         profileImage.sprite = profilePlaceholder;
     }
 
-    public void RemoveProfile()
+    public void ClearProfile()
     {
         _profile = null;
         _nameText.text = string.Empty;
