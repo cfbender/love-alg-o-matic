@@ -1610,6 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095488183}
   - component: {fileID: 1095488182}
+  - component: {fileID: 1095488186}
   - component: {fileID: 1095488184}
   - component: {fileID: 1095488185}
   m_Layer: 0
@@ -1658,6 +1659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingProfileCount: 20
+  ProfileGridControl: {fileID: 1450732881}
 --- !u!114 &1095488185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1679,6 +1681,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62055dad0d4616f4bab2885c4b13c461, type: 2}
   - {fileID: 11400000, guid: 04da1df954d494d4999edb1cebff6fae, type: 2}
   - {fileID: 11400000, guid: fdd6ce2255eae5e438c8e535d3eeac32, type: 2}
+--- !u!114 &1095488186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095488181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a792ba06517c8479a37c5ce4a0b83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1149376055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1893,8 +1907,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1450732879}
   - component: {fileID: 1450732880}
+  - component: {fileID: 1450732881}
   m_Layer: 5
-  m_Name: Grid UI
+  m_Name: Profile Grid UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,6 +1978,19 @@ MonoBehaviour:
   m_Spacing: {x: 15, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1450732881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450732878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539ec3b5555d3cb4184156eb769743cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProfileButtonPrefab: {fileID: 2197334284301885430, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
 --- !u!1001 &1489387015
 PrefabInstance:
   m_ObjectHideFlags: 0
