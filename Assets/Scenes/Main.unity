@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3389e07c64ef4e24da386e6f1ae5f6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingProfileCount: 20
+  startingProfileCount: 20
 --- !u!114 &1095488185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,10 +1670,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8218e52bf94ca940be0603a06afea15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Interests:
+  interests:
+  - {fileID: 11400000, guid: b7d5b548def42b848ae36b294bb3276a, type: 2}
   - {fileID: 11400000, guid: 9efbeb5b9734a4f4aabf4fc7dfe12f28, type: 2}
+  - {fileID: 11400000, guid: e6bd817b891b9d149b75630a81d359e1, type: 2}
   - {fileID: 11400000, guid: c55e16701c6319f4cb800570993a443d, type: 2}
   - {fileID: 11400000, guid: ff1fb35c6989420469e176ba54273736, type: 2}
+  - {fileID: 11400000, guid: 62055dad0d4616f4bab2885c4b13c461, type: 2}
   - {fileID: 11400000, guid: 04da1df954d494d4999edb1cebff6fae, type: 2}
   - {fileID: 11400000, guid: fdd6ce2255eae5e438c8e535d3eeac32, type: 2}
 --- !u!1001 &1149376055
