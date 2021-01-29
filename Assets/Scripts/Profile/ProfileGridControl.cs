@@ -23,6 +23,11 @@ public class ProfileGridControl : MonoBehaviour
         _profileButtonControls[profile].SetTileActive(active);
     }
 
+    public Vector2 GetPositionOfProfileButton(Profile profile)
+    {
+        return _profileButtonControls[profile].transform.position;
+    }
+
     private void ClearExistingProfiles()
     {
         if (_profileButtonControls == null)

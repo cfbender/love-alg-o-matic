@@ -259,5 +259,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022b74a7ca30b7043a1f7d36f44ea118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestString: 'Hello World '
   BackgroundOffset: {x: 12, y: 20}
+  DestroyDelay: 3

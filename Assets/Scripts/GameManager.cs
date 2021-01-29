@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,10 +11,43 @@ public class GameManager : MonoBehaviour
     private Profile _selectedProfile2;
     private bool _allowSelection = true;
 
+    public float ChatBubbleCooldown = 5;
+    private float _chatBubbleTimer;
+    private bool _chatBubbleCooldownActive;
+
     private void Start()
     {
         Managers.ProfileManager.GenerateInitialProfiles();
     }
+
+    private void Update()
+    {
+        HandleChatBubbles();
+    }
+
+    #region ProfileGridChatBubbles
+
+    private void HandleChatBubbles()
+    {
+        if (_chatBubbleCooldownActive) // Don't display too many chat bubbles at once
+        {
+            _chatBubbleTimer += Time.deltaTime;
+
+            if (_chatBubbleTimer < ChatBubbleCooldown) return;
+
+            _chatBubbleCooldownActive = false;
+        }; 
+
+        if (Random.Range(0f, 1f) <= .9f) return; // small chance each frame to display a new chat bubble
+        
+        Managers.ProfileManager.DisplayChatBubbleForRandomProfile();
+        _chatBubbleCooldownActive = true;
+        _chatBubbleTimer = 0;
+    }
+
+    #endregion
+
+    #region ProfileSelection
 
     public void SelectProfile(Profile profile)
     {
@@ -61,4 +95,7 @@ public class GameManager : MonoBehaviour
 
         _allowSelection = true;
     }
+
+    #endregion
+    
 }
