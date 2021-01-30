@@ -397,3 +397,5 @@ MonoBehaviour:
   Profile1InterestTextObject: {fileID: 6317226968864206961}
   HeartImage: {fileID: 7383279237614262166}
   Profile2InterestTextObject: {fileID: 5631325893981394232}
+  emptyHeart: {fileID: 21300000, guid: 8cd32f2f83534cd4fb49b7d6736a9101, type: 3}
+  fullHeart: {fileID: 21300000, guid: aece498c5a8edae47b2237e13c96dc2b, type: 3}

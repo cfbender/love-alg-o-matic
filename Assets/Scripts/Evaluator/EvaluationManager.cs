@@ -9,6 +9,7 @@ public class EvaluationManager : MonoBehaviour
     public EvaluationProfileControl evaluationProfileControl1;
     public EvaluationProfileControl evaluationProfileControl2;
     public TextMeshProUGUI ResultsText;
+    public LoveMeterControl loveMeterControl;
 
     public void AssignEvaluationProfile(Profile profile, bool first)
     {
@@ -20,24 +21,39 @@ public class EvaluationManager : MonoBehaviour
     {
         evaluationProfileControl1.ClearProfile();
         evaluationProfileControl2.ClearProfile();
+        loveMeterControl.Reset();
         ResultsText.text = "Awaiting Selections...";
     }
 
     public int PerformEvaluation(Profile profile1, Profile profile2)
     {
-        var matches = Managers.EvaluationManager.GetMatches(profile1, profile2);
-        var matchCount = matches.Count();
-
-        ResultsText.text = $"{profile1.Name} and {profile2.Name} have {matchCount} matching interests.\n\n" +
-                           $"{String.Join(" \n", matches)}";
-
+        var result = Managers.EvaluationManager.GetMatches(profile1, profile2);
+        var matchCount = result.Matches.Count;
+        loveMeterControl.UpdateLoveMeter(result, matchCount);
         Managers.ScoreManager.AddMatchedPair(profile1, profile2, matchCount < 3);
 
         return matchCount;
     }
 
-    public IEnumerable<string> GetMatches(Profile p1, Profile p2)
+    public EvaluationResult GetMatches(Profile p1, Profile p2)
     {
-        return p1.Interests.Where(interest => p2.Interests.Contains(interest)).Select(interest => interest.name);
+        var p1Interests = p1.Interests.OrderBy(interest => interest.name).Select(i => i.name).ToList();
+        var p2Interests = p2.Interests.OrderBy(interest => interest.name).Select(i => i.name).ToList();
+
+        return new EvaluationResult(p1Interests, p2Interests);
+    }
+}
+
+public class EvaluationResult
+{
+    public List<string> P1Misses;
+    public List<string> P2Misses;
+    public List<string> Matches;
+
+    public EvaluationResult(List<string> p1Interests, List<string> p2Interests)
+    {
+        Matches = p1Interests.Where(p2Interests.Contains).ToList();
+        P1Misses = p1Interests.Where(interest => !p2Interests.Contains(interest)).ToList();
+        P2Misses = p2Interests.Where(interest => !p1Interests.Contains(interest)).ToList();
     }
 }

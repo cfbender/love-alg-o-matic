@@ -81,10 +81,12 @@ public class GameManager : MonoBehaviour
         _allowSelection = false;
 
 
-        StartCoroutine(DelayedReset());
+        var matchCount = Managers.EvaluationManager.PerformEvaluation(_selectedProfile1, _selectedProfile2);
+        
+        StartCoroutine(DelayedReset(matchCount));
     }
 
-    private IEnumerator DelayedReset()
+    private IEnumerator DelayedReset(int matchCount)
     {
         yield return new WaitForSeconds(SelectionResetDelay);
 
@@ -92,7 +94,6 @@ public class GameManager : MonoBehaviour
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile1, false);
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile2, false);
 
-        var matchCount = Managers.EvaluationManager.PerformEvaluation(_selectedProfile1, _selectedProfile2);
 
         if (matchCount > 2)
         {
