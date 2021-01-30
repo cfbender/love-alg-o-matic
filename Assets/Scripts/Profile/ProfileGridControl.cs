@@ -28,7 +28,7 @@ public class ProfileGridControl : MonoBehaviour
         {
             var profile = new Profile();
             var profileButton = Instantiate(ProfileButtonPrefab, ProfileGridUI);
-            profileButton.AssignProfile(profile);
+            profileButton.AssignProfile(profile, i);
             _profileButtonControls.Add(profile, profileButton);
         }
     }

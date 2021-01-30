@@ -223,3 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NormalColor: {r: 1, g: 1, b: 1, a: 1}
   SelectedColor: {r: 1, g: 0, b: 0.53292704, a: 1}
+  SmallScale: {x: 0.1, y: 0.1, z: 1}
+  LargeScale: {x: 1.2, y: 1.2, z: 1}
+  IntroDuration: 1
+  EaseType: 27
