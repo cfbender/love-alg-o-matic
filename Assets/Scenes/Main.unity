@@ -2278,6 +2278,7 @@ GameObject:
   - component: {fileID: 1095488185}
   - component: {fileID: 1095488187}
   - component: {fileID: 1095488184}
+  - component: {fileID: 1095488190}
   - component: {fileID: 1095488188}
   - component: {fileID: 1095488189}
   m_Layer: 0
@@ -2412,6 +2413,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameGen: {fileID: 2071321629}
+--- !u!114 &1095488190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095488181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3ab55726d8f894abc9e85036d315c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FacialHairChance: 0.55
+  BaldChance: 0.2
+  HatChance: 0.4
+  Backgrounds:
+  - {fileID: 21300000, guid: a6bab81e287260d43bb5d3c5e4322080, type: 3}
+  - {fileID: 21300000, guid: 3a019bffb0d08f448bb30fa1bcd45dd2, type: 3}
+  - {fileID: 21300000, guid: 611539f0e140f7f48a7ec08a083808fc, type: 3}
+  - {fileID: 21300000, guid: e4e0bd2d2763bfb409fb31189859da55, type: 3}
+  - {fileID: 21300000, guid: 5c953801b5e809e4cba9ebdc4b6c1aec, type: 3}
+  Bodies:
+  - {fileID: 21300000, guid: 8b51a885bbc84044bb008cf1758cd215, type: 3}
+  - {fileID: 21300000, guid: b162b4207c38d45498b4236673df5198, type: 3}
+  - {fileID: 21300000, guid: e49d67d343b7bb145a409f4ad5feadc0, type: 3}
+  - {fileID: 21300000, guid: 3cb2f511f205fc840beac0d76ae26e44, type: 3}
+  - {fileID: 21300000, guid: 7b449a0addf56ab43a97f0739c3e0573, type: 3}
+  Eyes:
+  - {fileID: 21300000, guid: 788d7aeca3c68ae47aa8a28f049516da, type: 3}
+  - {fileID: 21300000, guid: 757e09a628b65f54fa4816402240f114, type: 3}
+  - {fileID: 21300000, guid: f5028b65c95010346b0f6ad8d7fffa05, type: 3}
+  - {fileID: 21300000, guid: 0daa13a6b6bd9e64cb274a399e9be5ae, type: 3}
+  - {fileID: 21300000, guid: c5b5ff1941e23014890654b2074fafbb, type: 3}
+  - {fileID: 21300000, guid: b544f6095fed4124ca9a8769bc07bcd0, type: 3}
+  - {fileID: 21300000, guid: 1a1fb4b3ae8a0d44b8a4a9233319993a, type: 3}
+  - {fileID: 21300000, guid: 1caaf5f80aae0584f986660070818ed7, type: 3}
+  FacialHairs:
+  - {fileID: 21300000, guid: b7506b7ea9a5b9f408fe489f2913a606, type: 3}
+  - {fileID: 21300000, guid: eab55b81b93912b4f9ffac6c14126386, type: 3}
+  - {fileID: 21300000, guid: 6176350b03b943f469254c79492970c9, type: 3}
+  - {fileID: 21300000, guid: e0106276883dbcc41844d0185378d215, type: 3}
+  Hairs:
+  - {fileID: 21300000, guid: 47212636a9cf5b341a2661cf8d66159f, type: 3}
+  - {fileID: 21300000, guid: 2596863173baa5346aad66522cb03289, type: 3}
+  - {fileID: 21300000, guid: 04e20db9ebafb2b45a1da49601640736, type: 3}
+  - {fileID: 21300000, guid: f22a5eb54600de1439795ef13f764c7c, type: 3}
+  - {fileID: 21300000, guid: 14b8fcb755a97084d9e1eaf047b76d52, type: 3}
+  Hats:
+  - {fileID: 21300000, guid: 95d422d334ee16c44af4b843b4db985a, type: 3}
+  - {fileID: 21300000, guid: ebf168ce8cad67d439c79abf4280651b, type: 3}
+  - {fileID: 21300000, guid: dbb3aa65b80411242a39e80b98982731, type: 3}
+  Heads:
+  - {fileID: 21300000, guid: e3bf122a665f57e499ba0463eb254a53, type: 3}
+  - {fileID: 21300000, guid: 7524153e6019b1c4b811084e09a3a379, type: 3}
+  - {fileID: 21300000, guid: 9bf68408861be2b43b36698c0f55742a, type: 3}
+  - {fileID: 21300000, guid: c3bf7bb44c8375b46adf4b387618e316, type: 3}
+  - {fileID: 21300000, guid: b16d97e06f429094a8dd0121e025c0bd, type: 3}
+  - {fileID: 21300000, guid: 8245509c58050054b8724d3592ac166d, type: 3}
+  - {fileID: 21300000, guid: d43b8e5247968e549b4fbaf0672d16a1, type: 3}
+  - {fileID: 21300000, guid: 5f26492b6a1d5dc4189c6e931d23218b, type: 3}
+  - {fileID: 21300000, guid: 2bdffc03611301847a7390c41f965247, type: 3}
+  Mouths:
+  - {fileID: 21300000, guid: 81b2fe1640f8ca54dade60760e63c67e, type: 3}
+  - {fileID: 21300000, guid: 3953e425e4ef96447b6b64a97198d967, type: 3}
+  - {fileID: 21300000, guid: 92b3e8aa994217e4db91494f5ed965d7, type: 3}
+  - {fileID: 21300000, guid: af925c87e30f392438cc6efd58d79bb5, type: 3}
+  - {fileID: 21300000, guid: 59ce99c27d87b6c42a5a7ff0d748ce85, type: 3}
+  - {fileID: 21300000, guid: 2da59b0d4d63560468cbfca606bf570f, type: 3}
 --- !u!1001 &1149376055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4356,9 +4425,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1450732879}
     m_Modifications:
+    - target: {fileID: 2344807348082656938, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376461350601245546, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205065928029668195, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568057444575353802, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127360723967925163, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5849221330510415763, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
       propertyPath: m_Name
       value: Profile Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773250515692808547, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957730046694289839, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8164655691422126269, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
       propertyPath: m_Pivot.x
