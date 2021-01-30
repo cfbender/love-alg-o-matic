@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,15 +15,82 @@ public class GameManager : MonoBehaviour
     private float _chatBubbleTimer;
     private bool _chatBubbleCooldownActive;
 
+    [Header("Ready State Settings")]
+    public GameObject ReadyOverlay;
+    public float ReadyDelay = 3f;
+    private bool ReadyScreenActive;
+    private TextMeshProUGUI ReadyCountDownText;
+    private float _readyTextTimer;
+    public float InitDelay = 3f;
+    private bool _gameActive;
+
+    [Header("Round Time")] 
+    public TextMeshProUGUI TimerText;
+    public float RoundTimeMax = 180;
+    private float _roundTimer;
+    private bool _roundOver;
+
     private void Start()
     {
-        Managers.ProfileGridControl.InitializeProfileButtons();
+        StartCoroutine(DelayedProfileInit());
+        ReadyOverlay.SetActive(true);
+        ReadyScreenActive = true;
+        ReadyCountDownText = ReadyOverlay.transform.Find("Ready Count Down Text").GetComponent<TextMeshProUGUI>();
+        _roundTimer = 0;
+        _roundOver = false;
     }
 
     private void Update()
     {
+        if (ReadyScreenActive)
+        {
+            _readyTextTimer += Time.deltaTime;
+            ReadyCountDownText.text = Mathf.Ceil(ReadyDelay - _readyTextTimer).ToString();
+        }
+        
+        if (!_gameActive) return;
+        
+        HandleRoundTimer();
+
+        if (_roundOver) return;
+        
         HandleChatBubbles();
     }
+
+    private IEnumerator DelayedProfileInit()
+    {
+        yield return new WaitForSeconds(ReadyDelay);
+        
+        ReadyOverlay.SetActive(false);
+        ReadyScreenActive = false;
+        Managers.ProfileGridControl.InitializeProfileButtons();
+        Managers.ProfileGridControl.DisableGridButtons();
+        
+        yield return new WaitForSeconds(InitDelay);
+        
+        _gameActive = true;
+        Managers.ProfileGridControl.ActivateGridButtons();
+    }
+
+    #region Timer
+
+    private void HandleRoundTimer()
+    {
+        _roundTimer += Time.deltaTime;
+        var timeSpan = TimeSpan.FromSeconds(RoundTimeMax - _roundTimer);
+        TimerText.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+        
+        if (_roundTimer >= RoundTimeMax)
+        {
+            _gameActive = false;
+            _roundOver = true;
+            Managers.ProfileGridControl.DisableGridButtons();
+        }
+        
+        // display score screen
+    }
+
+    #endregion
 
     #region ProfileGridChatBubbles
 
