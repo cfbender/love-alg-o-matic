@@ -12,19 +12,6 @@ public class ScoreManager : MonoBehaviour
     public int failureCount;
     public int maxFailures = 3;
     public int maxMatches = 10;
-    public bool victory;
-
-    public void CheckVictoryDefeat()
-    {
-        if (failureCount == maxFailures)
-        {
-            victory = false;
-        }
-        else if (matchCount == maxMatches)
-        {
-            victory = true;
-        }
-    }
     
     public void AddMatchedPair(Profile profile1, Profile profile2, bool failure)
     {
@@ -33,7 +20,6 @@ public class ScoreManager : MonoBehaviour
        matchCount = matches.Count;
        failureCount = failures.Count;
        GenerateScoreText();
-       CheckVictoryDefeat();
     }
 
     private void GenerateScoreText()

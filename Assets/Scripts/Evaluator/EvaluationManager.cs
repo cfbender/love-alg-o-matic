@@ -23,14 +23,17 @@ public class EvaluationManager : MonoBehaviour
         ResultsText.text = "Awaiting Selections...";
     }
 
-    public void PerformEvaluation(Profile profile1, Profile profile2)
+    public int PerformEvaluation(Profile profile1, Profile profile2)
     {
         var matches = Managers.EvaluationManager.GetMatches(profile1, profile2);
+        var matchCount = matches.Count();
 
-        ResultsText.text = $"{profile1.Name} and {profile2.Name} have {matches.Count()} matching interests.\n\n" +
+        ResultsText.text = $"{profile1.Name} and {profile2.Name} have {matchCount} matching interests.\n\n" +
                            $"{String.Join(" \n", matches)}";
 
-        Managers.ScoreManager.AddMatchedPair(profile1, profile2, matches.Count() < 3);
+        Managers.ScoreManager.AddMatchedPair(profile1, profile2, matchCount < 3);
+
+        return matchCount;
     }
 
     public IEnumerable<string> GetMatches(Profile p1, Profile p2)
