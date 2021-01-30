@@ -9,15 +9,12 @@ public class ProfileButtonControl : MonoBehaviour
     
     private Profile _profile;
     
-    private TextMeshProUGUI _nameText;
     private Image _tileImage;
 
     public void AssignProfile(Profile profile)
     {
-        _nameText = GetComponentInChildren<TextMeshProUGUI>();
         _tileImage = GetComponent<Image>();
         _profile = profile;
-        _nameText.text = profile.Name;
     }
 
     public void OnProfileButtonClick()
