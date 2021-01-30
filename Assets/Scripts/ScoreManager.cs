@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public TextMeshProUGUI ScoreText;
     public List<MatchedProfile> matches = new List<MatchedProfile>();
     public List<MatchedProfile> failures = new List<MatchedProfile>();
     public int matchCount;
@@ -30,7 +32,14 @@ public class ScoreManager : MonoBehaviour
        list.Add(new MatchedProfile(profile1, profile2)); 
        matchCount = matches.Count;
        failureCount = failures.Count;
+       GenerateScoreText();
        CheckVictoryDefeat();
+    }
+
+    private void GenerateScoreText()
+    {
+        ScoreText.text = $"Successful Matches: {matchCount} \n" +
+                         $"Unsuccessful Matches: {failureCount}";
     }
     
 }

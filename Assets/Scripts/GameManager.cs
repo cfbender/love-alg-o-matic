@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"{profile.Name} set to <color=teal>_selectedProfile2</color>");
         _allowSelection = false;
 
+        Managers.EvaluationManager.PerformEvaluation(_selectedProfile1, _selectedProfile2);
+        
         StartCoroutine(DelayedReset());
     }
 
@@ -90,13 +92,7 @@ public class GameManager : MonoBehaviour
         // reset selected profiles and buttons
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile1, false);
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile2, false);
-
-        var matches = Managers.EvaluationManager.GetMatches(_selectedProfile1, _selectedProfile2);
-
-        Debug.Log($"{_selectedProfile1.Name} matched with {_selectedProfile2.Name} on {matches.Count()} interests.");
-        Debug.Log($"Matching interests: {String.Join(", ", matches)}");
-
-        Managers.ScoreManager.AddMatchedPair(_selectedProfile1, _selectedProfile2, matches.Count() < 3);
+        
         Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
 
         _selectedProfile1 = null;

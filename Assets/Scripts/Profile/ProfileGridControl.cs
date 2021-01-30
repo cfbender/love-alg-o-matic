@@ -9,8 +9,10 @@ public class ProfileGridControl : MonoBehaviour
     private Dictionary<Profile, ProfileButtonControl> _profileButtonControls;
 
     public Transform ProfileGridUI;
-    
-    [Header("Chat Bubble")] public ChatBubbleControl ChatBubblePrefab;
+
+    [Header("Chat Bubble")] 
+    public Vector2 ChatBubbleOffset;
+    public ChatBubbleControl ChatBubblePrefab;
     private Transform _canvasTransform;
 
     private void Awake()
@@ -75,8 +77,8 @@ public class ProfileGridControl : MonoBehaviour
         var calloutText = interest.uniqueCallouts[Random.Range(0, interest.uniqueCallouts.Length)];
 
         var chatBubble = Instantiate(ChatBubblePrefab, _canvasTransform);
-        chatBubble.transform.position = profileButton.transform.position;
-        chatBubble.AssignText(calloutText + profile.Name);
+        chatBubble.transform.position = (Vector2)profileButton.transform.position + ChatBubbleOffset;
+        chatBubble.AssignText(calloutText);
     }
      #endregion
 }
