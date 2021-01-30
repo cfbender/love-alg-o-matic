@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
 
         var matchCount = Managers.EvaluationManager.PerformEvaluation(_selectedProfile1, _selectedProfile2);
-        
+
         StartCoroutine(DelayedReset(matchCount));
     }
 
@@ -94,11 +94,14 @@ public class GameManager : MonoBehaviour
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile1, false);
         Managers.ProfileGridControl.ActivateProfileButton(_selectedProfile2, false);
 
+        var successful = matchCount > 2;
 
-        if (matchCount > 2)
+        if (successful)
         {
             Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
         }
+
+        Managers.ScoreManager.UpdateStreaks(successful);
 
         _selectedProfile1 = null;
         _selectedProfile2 = null;
