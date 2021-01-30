@@ -76,7 +76,7 @@ public class ProfileGridControl : MonoBehaviour
 
         var chatBubble = Instantiate(ChatBubblePrefab, _canvasTransform);
         chatBubble.transform.position = profileButton.transform.position;
-        chatBubble.AssignText(calloutText + profile.Name);
+        chatBubble.AssignText(calloutText);
     }
      #endregion
 }
