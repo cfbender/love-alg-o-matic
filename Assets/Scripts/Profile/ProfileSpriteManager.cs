@@ -5,7 +5,7 @@ public class ProfileSpriteManager : MonoBehaviour
 {
     [Range(0, 1)] public float FacialHairChance = 0.55f;
     [Range(0, 1)] public float BaldChance = 0.2f;
-    [Range(0, 1)] public float HatChance = 0.4f;
+    [Range(0, 1)] public float HatChance = 0.3f;
     
     public List<Sprite> Backgrounds;
     public List<Sprite> Bodies;
@@ -25,7 +25,7 @@ public class ProfileSpriteManager : MonoBehaviour
         profile.MouthId = Random.Range(0, Mouths.Count);
 
         profile.FacialHairId = Random.Range(0f, 1f) <= FacialHairChance ? Random.Range(0, FacialHairs.Count) : -1;
-        profile.HairId = Random.Range(0f, 1f) <= BaldChance ? Random.Range(0, Hairs.Count) : -1;
-        profile.HatId = Random.Range(0f, 1f) <= HatChance ? Random.Range(0, Hats.Count) : -1;
+        profile.HairId = Random.Range(0f, 1f) >= BaldChance ? Random.Range(0, Hairs.Count) : -1;
+        profile.HatId = Random.Range(0f, 1f) >= HatChance ? Random.Range(0, Hats.Count) : -1;
     }
 }
