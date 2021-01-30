@@ -2345,12 +2345,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interests:
-  - {fileID: 11400000, guid: b7d5b548def42b848ae36b294bb3276a, type: 2}
   - {fileID: 11400000, guid: 9efbeb5b9734a4f4aabf4fc7dfe12f28, type: 2}
+  - {fileID: 11400000, guid: d48710527b636804896a3db8d06072f1, type: 2}
+  - {fileID: 11400000, guid: 77bb2e887be048542bdebc23b88fba20, type: 2}
   - {fileID: 11400000, guid: e6bd817b891b9d149b75630a81d359e1, type: 2}
+  - {fileID: 11400000, guid: b7d5b548def42b848ae36b294bb3276a, type: 2}
   - {fileID: 11400000, guid: c55e16701c6319f4cb800570993a443d, type: 2}
-  - {fileID: 11400000, guid: ff1fb35c6989420469e176ba54273736, type: 2}
   - {fileID: 11400000, guid: 62055dad0d4616f4bab2885c4b13c461, type: 2}
+  - {fileID: 11400000, guid: 11b3688356fd45d46aa995a79458d2c9, type: 2}
   - {fileID: 11400000, guid: 04da1df954d494d4999edb1cebff6fae, type: 2}
   - {fileID: 11400000, guid: fdd6ce2255eae5e438c8e535d3eeac32, type: 2}
 --- !u!114 &1095488186
@@ -4425,6 +4427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1450732879}
     m_Modifications:
+    - target: {fileID: 1550101574661362372, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2344807348082656938, guid: cce2065e9c52366418cb21cb31c4eada, type: 3}
       propertyPath: m_RootOrder
       value: 6
