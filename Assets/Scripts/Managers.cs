@@ -6,7 +6,8 @@ public class Managers : MonoBehaviour
     public static InterestManager InterestManager;
     public static EvaluationManager EvaluationManager;
     public static ProfileGridControl ProfileGridControl;
-    public static ScoreManager ScoreManager; 
+    public static ScoreManager ScoreManager;
+    public static GrammarManager GrammarManager;
     private void Awake()
     {
         GameManager = GetComponent<GameManager>();
@@ -14,5 +15,6 @@ public class Managers : MonoBehaviour
         EvaluationManager = GetComponent<EvaluationManager>();
         ProfileGridControl = GetComponent<ProfileGridControl>();
         ScoreManager = GetComponent<ScoreManager>();
+        GrammarManager = GetComponent<GrammarManager>();
     }
 }

@@ -14,6 +14,6 @@ public class Profile
     {
         Id = Guid.NewGuid();
         Interests = Managers.InterestManager.GetInterests();
-        Name = Names[UnityEngine.Random.Range(0, Names.Count)];
+        Name = Managers.GrammarManager.GetRandomName();
     }
 }
