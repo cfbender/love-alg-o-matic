@@ -6,12 +6,11 @@ public class EvaluationProfileControl : MonoBehaviour
 {
     public Sprite profilePlaceholder;
     public Sprite emptySprite;
-    private TextMeshProUGUI _nameText;
+    public TextMeshProUGUI nameText;
     private Profile _profile;
 
     private void Start()
     {
-        _nameText = GetComponentInChildren<TextMeshProUGUI>();
         AssignComponents();
         ClearProfile();
     }
@@ -19,14 +18,14 @@ public class EvaluationProfileControl : MonoBehaviour
     public void AssignProfile(Profile profile)
     {
         _profile = profile;
-        _nameText.text = profile.Name;
+        nameText.text = profile.Name;
         AssignProfileSprites();
     }
 
     public void ClearProfile()
     {
         _profile = null;
-        _nameText.text = string.Empty;
+        nameText.text = string.Empty;
         SetProfileSpritesActive(false);
     }
 

@@ -173,6 +173,11 @@ public class GameManager : MonoBehaviour
         _selectedProfile1 = null;
         _selectedProfile2 = null;
 
+        if (Managers.ScoreManager.matchCount > 2)
+        {
+            Managers.ScoreManager.ShowFinalScoreScreen();
+        }
+
         Managers.EvaluationManager.ClearEvaluationProfiles();
 
         _allowSelection = true;

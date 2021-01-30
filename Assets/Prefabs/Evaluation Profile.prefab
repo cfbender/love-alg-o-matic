@@ -545,7 +545,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -833,3 +833,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profilePlaceholder: {fileID: 21300000, guid: 1fc78525e45c3754599c2c3096d65cda, type: 3}
   emptySprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  nameText: {fileID: 6032347971437315364}
