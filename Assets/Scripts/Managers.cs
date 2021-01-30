@@ -9,7 +9,8 @@ public class Managers : MonoBehaviour
     public static ScoreManager ScoreManager;
     public static GrammarManager GrammarManager;
     public static ProfileSpriteManager ProfileSpriteManager;
-    
+    public static SoundManager SoundManager;
+
     private void Awake()
     {
         GameManager = GetComponent<GameManager>();
@@ -19,5 +20,6 @@ public class Managers : MonoBehaviour
         ScoreManager = GetComponent<ScoreManager>();
         GrammarManager = GetComponent<GrammarManager>();
         ProfileSpriteManager = GetComponent<ProfileSpriteManager>();
+        SoundManager = GetComponent<SoundManager>();
     }
 }
