@@ -13,6 +13,7 @@ public class ChatBubbleControl : MonoBehaviour
     private void Start()
     {
         StartCoroutine(DelayedDestroy());
+        Managers.GameManager.ChatBubbleAdded();
     }
 
     public void AssignText(string text)
@@ -31,6 +32,7 @@ public class ChatBubbleControl : MonoBehaviour
     {
         yield return new WaitForSeconds(DestroyDelay);
 
+        Managers.GameManager.ChatBubbleRemoved();
         Destroy(gameObject);
     }
 }
