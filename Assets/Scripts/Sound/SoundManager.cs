@@ -205,7 +205,8 @@ public class SoundManager : MonoBehaviour
         float volume = 1.0f;
         switch (sfxType)
         {
-
+            case SFXType.Profile_ClickOut:
+                volume = 0.5f; break;
             default: break;
         }
 
