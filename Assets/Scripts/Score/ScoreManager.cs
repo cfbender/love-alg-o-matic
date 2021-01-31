@@ -2,10 +2,11 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI ScoreText;
+    public Text ScoreText;
     public ScoreScreenControl ScoreScreenControl;
 
     public List<MatchedProfile> matches = new List<MatchedProfile>();

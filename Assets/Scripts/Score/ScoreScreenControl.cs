@@ -46,7 +46,11 @@ public class ScoreScreenControl : MonoBehaviour
 
     public void DisplayMatchedPair()
     {
-        var match = Managers.ScoreManager.matches[Random.Range(0, Managers.ScoreManager.matches.Count)];
+        int matchCount = Managers.ScoreManager.matches.Count;
+
+        if (matchCount <= 0) return;
+
+        var match = Managers.ScoreManager.matches[Random.Range(0, matchCount)];
 
         evaluationProfileControl1.AssignProfile(match.Profile1);
         evaluationProfileControl2.AssignProfile(match.Profile2);

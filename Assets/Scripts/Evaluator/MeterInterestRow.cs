@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class MeterInterestRow : MonoBehaviour
 {
-    public TextMeshProUGUI Profile1InterestTextObject;
+    public Text Profile1InterestTextObject;
     public Image HeartImage;
-    public TextMeshProUGUI Profile2InterestTextObject;
+    public Text Profile2InterestTextObject;
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public string defaultText = "?????";
