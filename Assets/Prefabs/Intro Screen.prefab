@@ -6537,6 +6537,7 @@ GameObject:
   - component: {fileID: 6426902894294045860}
   - component: {fileID: 6426902894294045865}
   - component: {fileID: 6426902894294045889}
+  - component: {fileID: 8021527265886831857}
   m_Layer: 5
   m_Name: Programmer Profile Image
   m_TagString: Untagged
@@ -6609,6 +6610,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.36
+--- !u!114 &8021527265886831857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426902894294045851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f31c0ae2fe0e14883419e759eef5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntroEaseType: 27
+  duration: 3
+  strength: 2
+  rect: {fileID: 6426902894294045860}
 --- !u!1 &6426902894294045852
 GameObject:
   m_ObjectHideFlags: 0
