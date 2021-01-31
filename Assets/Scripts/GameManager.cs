@@ -75,7 +75,12 @@ public class GameManager : MonoBehaviour
         Managers.SoundManager.PlaySFX("tick tock");
         yield return new WaitForSeconds(1.0f);
         Managers.SoundManager.PlaySFX("tick tock");
-        yield return new WaitForSeconds(1.0f);
+
+
+        yield return new WaitForSeconds(0.3f);
+        Managers.SoundManager.PlayVA("quip");
+
+        yield return new WaitForSeconds(0.7f);
         Managers.SoundManager.PlaySFX("tick tock", 3.0f);
 
         yield return new WaitForSeconds(0.5f);
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
     public int MaxChatBubbles = 4;
     [Range(0, 1)] public float ChatBubbleChancePerFrame = 0.9f;
     private int chatBubbleCount;
-    
+
     private void HandleChatBubbles()
     {
         if (chatBubbleCount >= MaxChatBubbles) // Don't display too many chat bubbles at once

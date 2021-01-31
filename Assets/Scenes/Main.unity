@@ -6526,6 +6526,8 @@ MonoBehaviour:
   sfx_FailedMatch: {fileID: 8300000, guid: cb8bef89af9f3f04fbb0ac95a06a6b73, type: 3}
   sfx_SuccessfulMatch: {fileID: 8300000, guid: b6b5c853073a61b4ebc74b7c86e0dd76, type: 3}
   sfx_TickTock: {fileID: 8300000, guid: e857c14c530ccc74884ed9380e6d0c38, type: 3}
+  va_quips:
+  - {fileID: 8300000, guid: 78ac0468153e3c14480ebb60781b13bb, type: 3}
 --- !u!1 &1108579475
 GameObject:
   m_ObjectHideFlags: 0

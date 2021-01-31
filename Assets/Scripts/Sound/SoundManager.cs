@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
 
     //SFX SPECIFIC
 
-    private float defaultSFXVolume = 0.5f;
+    // private float defaultSFXVolume = 0.5f;
 
     private bool sfxEnabled;
     private const string sfxEnabledKey = "SFXEnabled";
@@ -79,6 +79,26 @@ public class SoundManager : MonoBehaviour
     private Dictionary<SFXType, AudioClip> sfxAudioClips;
 
 
+    //VA SPECIFIC
+
+    // private float defaultVAVolume = 0.5f;
+
+    private bool vaEnabled;
+    private const string vaEnabledKey = "SFXEnabled";
+    public event Action<bool> vaEnableDisable;
+
+    public AudioClip[] va_quips;
+
+    public enum VAType
+    {
+        Quips
+    }
+    private Dictionary<VAType, AudioClip[]> vaAudioClips;
+
+
+
+
+
     private AudioSource NewAudioSource(string name)
     {
         GameObject audioObject = new GameObject(name);
@@ -118,6 +138,11 @@ public class SoundManager : MonoBehaviour
         sfxAudioClips.Add(SFXType.FailedMatch, sfx_FailedMatch);
         sfxAudioClips.Add(SFXType.SuccessfulMatch, sfx_SuccessfulMatch);
         sfxAudioClips.Add(SFXType.TickTock, sfx_TickTock);
+
+        //Initiate voice acting
+
+        vaAudioClips = new Dictionary<VAType, AudioClip[]>();
+        vaAudioClips.Add(VAType.Quips, va_quips);
     }
 
     private void InitAudioSources()
@@ -340,7 +365,90 @@ public class SoundManager : MonoBehaviour
 
         sfxAudioSource.PlayOneShot(sfxAudioClip, volume);
         float clipLength = sfxAudioClip.length;
-        Destroy(sfxAudioSource, clipLength);
+        Destroy(sfxAudioSource.gameObject, clipLength);
+    }
+
+    private bool VAEnabled
+    {
+        get { return PlayerPrefs.GetInt(vaEnabledKey, 1) == 1 ? true : false; }
+        set
+        {
+            vaEnabled = value;
+            PlayerPrefs.SetInt(vaEnabledKey, value ? 1 : 0);
+        }
+    }
+
+    public void EnableDisabledVA()
+    {
+        VAEnabled = !vaEnabled;
+
+        if (vaEnableDisable != null)
+        {
+            vaEnableDisable(vaEnabled);
+        }
+    }
+
+    private float getVAVolumeHelper(VAType vaType)
+    {
+        float volume = 1.0f;
+        switch (vaType)
+        {
+            case VAType.Quips:
+                volume = 1.0f;
+                break;
+            default: break;
+        }
+
+        return volume;
+    }
+
+    private void AdjustVAPitchHelper(
+        AudioSource audioSource,
+        VAType vaType,
+        float pitch = 1.0f
+        )
+    {
+        if (pitch == -1) pitch = UnityEngine.Random.Range(0.75f, 1.0f);
+
+        switch (vaType)
+        {
+            case VAType.Quips:
+                pitch = 1.0f;
+                break;
+            default: break;
+        }
+
+        audioSource.pitch = pitch;
+    }
+
+    public void PlayVA(string name, float pitch = 1.0f)
+    {
+        switch (name)
+        {
+            case "quip":
+                PlayVA(VAType.Quips, "echo-5-2", pitch);
+                break;
+            default: break;
+        }
+    }
+
+    public void PlayVA(VAType vaType, string effects = "", float pitch = 1.0f)
+    {
+        //Change to get random quip here
+        AudioClip vaAudioClip = vaAudioClips[vaType][0];
+
+        if (!vaEnabled || vaAudioClip == null) return;
+
+        AudioSource vaAudioSource = NewAudioSource("VA");
+        GameObject vaGameObject = vaAudioSource.gameObject;
+
+        if (pitch != 1.0) AdjustVAPitchHelper(vaAudioSource, vaType, pitch);
+        float volume = getVAVolumeHelper(vaType);
+        if (effects != "") AdjustSFXEffects(effects, vaGameObject);
+
+        vaAudioSource.PlayOneShot(vaAudioClip, volume);
+        float clipLength = vaAudioClip.length;
+        Destroy(vaAudioSource.gameObject, clipLength);
     }
 
 
@@ -348,10 +456,9 @@ public class SoundManager : MonoBehaviour
     {
         musicEnabled = MusicEnabled;
         sfxEnabled = SFXEnabled;
+        vaEnabled = VAEnabled;
 
         InitAudioSources();
         InitSounds();
-
-        // PlayMusic(MusicType.Pre);
     }
 }
