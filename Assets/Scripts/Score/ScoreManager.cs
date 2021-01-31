@@ -12,8 +12,6 @@ public class ScoreManager : MonoBehaviour
     public List<MatchedProfile> failures = new List<MatchedProfile>();
     public int matchCount;
     public int failureCount;
-    public int maxFailures = 3;
-    public int maxMatches = 10;
 
     public int currentStreak;
     public bool currentStreakSuccessful;

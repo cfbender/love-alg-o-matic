@@ -85,9 +85,8 @@ public class GameManager : MonoBehaviour
             _gameActive = false;
             _roundOver = true;
             Managers.ProfileGridControl.DisableGridButtons();
+            Managers.ScoreManager.ShowFinalScoreScreen();
         }
-        
-        // display score screen
     }
 
     #endregion
@@ -172,12 +171,7 @@ public class GameManager : MonoBehaviour
 
         _selectedProfile1 = null;
         _selectedProfile2 = null;
-
-        if (Managers.ScoreManager.matchCount > Managers.ScoreManager.maxMatches)
-        {
-            Managers.ScoreManager.ShowFinalScoreScreen();
-        }
-
+        
         Managers.EvaluationManager.ClearEvaluationProfiles();
 
         _allowSelection = true;

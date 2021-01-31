@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Books
   m_EditorClassIdentifier: 
   uniqueCallouts:
-  - tea
+  - Oh you like books? Name all of them.
+  - I'm a novelist just moonlighting as a barista.
+  - 'The best book is Bounce Castle: The Manga'
+  - I love Sci-Fi Romance Detective Novels.
+  - I love books that you get to color.

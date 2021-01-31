@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625467b81213cc84a8379935479c75e1, type: 3}
-  m_Name: Camping
+  m_Name: Movies
   m_EditorClassIdentifier: 
   uniqueCallouts:
-  - DON'T USE POISON IVEY AS TOILET PAPER!
-  - Smores, Bears, Tents, Fishing... WAIT BEARS?!
-  - I love dinner by campfire.
-  - Fishing is both great and boring!
-  - Kumbaya, my dudes.
+  - Schmulu and Chill!
+  - I love the Robochanger Movies!
+  - Kitten Carenbino is the best director
+  - The Speedies and The Angries is my favorite movie!
+  - Wayne The Boulder Muscleman is my favorite actor!
