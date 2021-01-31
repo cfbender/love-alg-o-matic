@@ -6528,6 +6528,12 @@ MonoBehaviour:
   sfx_TickTock: {fileID: 8300000, guid: e857c14c530ccc74884ed9380e6d0c38, type: 3}
   va_quips:
   - {fileID: 8300000, guid: 78ac0468153e3c14480ebb60781b13bb, type: 3}
+  va_attempts:
+  - {fileID: 8300000, guid: fedd3743b8f696a4f9072002ca7f9f89, type: 3}
+  - {fileID: 8300000, guid: 1a90fb2878926e048a5f21d52fbb4219, type: 3}
+  - {fileID: 8300000, guid: 2812ac1b315b5794bb553cbfd126423a, type: 3}
+  - {fileID: 8300000, guid: fc9d71d1b35b97f47a52b8466a250a57, type: 3}
+  - {fileID: 8300000, guid: d1ce57026e566614e80cba52d21ad7dd, type: 3}
 --- !u!1 &1108579475
 GameObject:
   m_ObjectHideFlags: 0

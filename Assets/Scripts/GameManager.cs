@@ -191,6 +191,8 @@ public class GameManager : MonoBehaviour
 
         var matchCount = Managers.EvaluationManager.PerformEvaluation(_selectedProfile1, _selectedProfile2);
 
+        Managers.SoundManager.TryPlayVA("evaluate");
+
         StartCoroutine(DelayedReset(matchCount));
     }
 

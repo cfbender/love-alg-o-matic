@@ -88,10 +88,12 @@ public class SoundManager : MonoBehaviour
     public event Action<bool> vaEnableDisable;
 
     public AudioClip[] va_quips;
+    public AudioClip[] va_attempts;
 
     public enum VAType
     {
-        Quips
+        Quips,
+        AttemptDialog
     }
     private Dictionary<VAType, AudioClip[]> vaAudioClips;
 
@@ -143,6 +145,7 @@ public class SoundManager : MonoBehaviour
 
         vaAudioClips = new Dictionary<VAType, AudioClip[]>();
         vaAudioClips.Add(VAType.Quips, va_quips);
+        vaAudioClips.Add(VAType.AttemptDialog, va_attempts);
     }
 
     private void InitAudioSources()
@@ -394,6 +397,7 @@ public class SoundManager : MonoBehaviour
         switch (vaType)
         {
             case VAType.Quips:
+            case VAType.AttemptDialog:
                 volume = 1.0f;
                 break;
             default: break;
@@ -413,12 +417,19 @@ public class SoundManager : MonoBehaviour
         switch (vaType)
         {
             case VAType.Quips:
+            case VAType.AttemptDialog:
                 pitch = 1.0f;
                 break;
             default: break;
         }
 
         audioSource.pitch = pitch;
+    }
+
+    public void TryPlayVA(string name)
+    {
+        if (UnityEngine.Random.Range(0, 100) >= 50) return;
+        Managers.SoundManager.PlayVA(name);
     }
 
     public void PlayVA(string name, float pitch = 1.0f)
@@ -428,14 +439,19 @@ public class SoundManager : MonoBehaviour
             case "quip":
                 PlayVA(VAType.Quips, "echo-5-2", pitch);
                 break;
+            case "attempt":
+            case "attempt dialog":
+            case "evaluate":
+            case "evaluate match":
+                PlayVA(VAType.AttemptDialog, "echo-5-2", pitch);
+                break;
             default: break;
         }
     }
 
     public void PlayVA(VAType vaType, string effects = "", float pitch = 1.0f)
     {
-        //Change to get random quip here
-        AudioClip vaAudioClip = vaAudioClips[vaType][0];
+        AudioClip vaAudioClip = vaAudioClips[vaType][UnityEngine.Random.Range(0, vaAudioClips[vaType].Length)];
 
         if (!vaEnabled || vaAudioClip == null) return;
 
