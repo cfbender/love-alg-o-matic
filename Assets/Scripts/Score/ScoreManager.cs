@@ -61,6 +61,19 @@ public class ScoreManager : MonoBehaviour
         ScoreScreenControl.DisableScoreScreen();
     }
 
+    public void ResetScores()
+    {
+        matches = new List<MatchedProfile>();
+        failures = new List<MatchedProfile>();
+        matchCount = 0;
+        failureCount = 0;
+
+        currentStreak = 0;
+        currentStreakSuccessful = false;
+        longestSuccessStreak = 0;
+        longestMissedStreak = 0;
+    }
+
     private void GenerateScoreText()
     {
         ScoreText.text = $"Successful Matches: {matchCount} \n" +
