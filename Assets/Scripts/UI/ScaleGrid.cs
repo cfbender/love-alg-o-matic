@@ -49,6 +49,8 @@ public class ScaleGrid : MonoBehaviour
 
     void UpdateCellSize()
     {
+        grid = GetComponent<GridLayoutGroup>();
+
         var count = grid.constraintCount;
         if (expand == Axis.X)
         {

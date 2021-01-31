@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public float InitDelay = 3f;
     private bool _gameActive;
 
-    [Header("Round Time")] 
+    [Header("Round Time")]
     public TextMeshProUGUI TimerText;
     public float RoundTimeMax = 180;
     private float _roundTimer;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       BeginNewRound();
+        BeginNewRound();
     }
 
     private void Update()
@@ -42,19 +42,20 @@ public class GameManager : MonoBehaviour
             _readyTextTimer += Time.deltaTime;
             ReadyCountDownText.text = Mathf.Ceil(ReadyDelay - _readyTextTimer).ToString();
         }
-        
+
         if (!_gameActive) return;
-        
+
         HandleRoundTimer();
 
         if (_roundOver) return;
-        
+
         HandleChatBubbles();
     }
 
     public void BeginNewRound()
     {
         Managers.ScoreManager.HideFinalScoreScreen();
+        Managers.ScoreManager.ResetScores();
         StartCoroutine(DelayedProfileInit());
         ReadyOverlay.SetActive(true);
         ReadyScreenActive = true;
@@ -67,14 +68,14 @@ public class GameManager : MonoBehaviour
     private IEnumerator DelayedProfileInit()
     {
         yield return new WaitForSeconds(ReadyDelay);
-        
+
         ReadyOverlay.SetActive(false);
         ReadyScreenActive = false;
         Managers.ProfileGridControl.InitializeProfileButtons();
         Managers.ProfileGridControl.DisableGridButtons();
-        
+
         yield return new WaitForSeconds(InitDelay);
-        
+
         _gameActive = true;
         Managers.ProfileGridControl.ActivateGridButtons();
     }
@@ -86,7 +87,7 @@ public class GameManager : MonoBehaviour
         _roundTimer += Time.deltaTime;
         var timeSpan = TimeSpan.FromSeconds(RoundTimeMax - _roundTimer);
         TimerText.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
-        
+
         if (_roundTimer >= RoundTimeMax)
         {
             _gameActive = false;
@@ -182,7 +183,7 @@ public class GameManager : MonoBehaviour
 
         _selectedProfile1 = null;
         _selectedProfile2 = null;
-        
+
         Managers.EvaluationManager.ClearEvaluationProfiles();
 
         _allowSelection = true;
