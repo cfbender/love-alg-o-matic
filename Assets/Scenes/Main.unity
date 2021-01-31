@@ -6193,7 +6193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interests:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 291f867a3981bcd40ba6943b665c357d, type: 2}
   - {fileID: 11400000, guid: 9dda18a6efc67ad4a8092d7c0951e79a, type: 2}
   - {fileID: 11400000, guid: b424b7ccc78956645a6ab734843a8e01, type: 2}
   - {fileID: 11400000, guid: 9efbeb5b9734a4f4aabf4fc7dfe12f28, type: 2}
@@ -6227,7 +6227,7 @@ MonoBehaviour:
   ReadyDelay: 3
   InitDelay: 3
   TimerText: {fileID: 1788325930}
-  RoundTimeMax: 10
+  RoundTimeMax: 180
   titleScreenObject: {fileID: 115320444}
 --- !u!114 &1095488187
 MonoBehaviour:
