@@ -105,7 +105,7 @@ public class ProfileGridControl : MonoBehaviour
         var interest = profile.Interests[Random.Range(0, profile.Interests.Count)];
         var calloutText = interest.uniqueCallouts[Random.Range(0, interest.uniqueCallouts.Length)];
         var chatBubble = Instantiate(ChatBubblePrefab, _canvasTransform);
-        chatBubble.transform.position = (Vector2) profileButton.transform.position + ChatBubbleOffset;
+        chatBubble.transform.position = (Vector2)profileButton.transform.position + ChatBubbleOffset;
         chatBubble.AssignText(calloutText);
         chatBubble.AssignProfile(profile);
 

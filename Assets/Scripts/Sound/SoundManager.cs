@@ -183,6 +183,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void StopMusic()
+    {
+        musicAudioSource.Stop();
+    }
+
     public void PlayMusic(string name)
     {
         if (!musicEnabled) return;
@@ -327,6 +332,10 @@ public class SoundManager : MonoBehaviour
             string effect = effectsSplit[i];
             AddEffect(effect, sfxGameObject);
         }
+    }
+    public void PlaySFX(string name)
+    {
+        PlaySFX(name, 1.0f);
     }
 
     public void PlaySFX(string name, float pitch = 1.0f)
@@ -490,5 +499,8 @@ public class SoundManager : MonoBehaviour
 
         InitAudioSources();
         InitSounds();
+
+        Managers.SoundManager.PlayMusic("pre");
+        Managers.SoundManager.PlaySFX("profile select");
     }
 }

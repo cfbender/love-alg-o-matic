@@ -70,6 +70,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountdownSounds()
     {
+        Managers.SoundManager.StopMusic();
+
         Managers.SoundManager.PlaySFX("tick tock");
         yield return new WaitForSeconds(1.0f);
         Managers.SoundManager.PlaySFX("tick tock");
