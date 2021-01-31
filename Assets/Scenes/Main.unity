@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 94.35
+  m_fontSize: 99.4
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10364,7 +10364,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 109, y: 0}
-  m_SizeDelta: {x: 200, y: 81.6821}
+  m_SizeDelta: {x: 250, y: 81.6821}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788325930
 MonoBehaviour:
@@ -10386,7 +10386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3:00
+  m_text: 03:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c2ec08cf6f3351b448d73e57584ddbfd, type: 2}
   m_sharedMaterial: {fileID: 112242660856665082, guid: c2ec08cf6f3351b448d73e57584ddbfd, type: 2}
@@ -10962,6 +10962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileDisplayDelay: 5
   resultText: {fileID: 971487825}
+  matchCountText: {fileID: 1020683153}
+  mismatchCountText: {fileID: 541580192}
   bestStreakText: {fileID: 271139842}
   worstStreakText: {fileID: 1966928902}
   evaluationProfileControl1: {fileID: 979587831}
