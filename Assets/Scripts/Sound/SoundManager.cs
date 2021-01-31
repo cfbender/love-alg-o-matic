@@ -89,11 +89,15 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip[] va_quips;
     public AudioClip[] va_attempts;
+    public AudioClip[] va_failedMatch;
+    public AudioClip[] va_successfulMatch;
 
     public enum VAType
     {
         Quips,
-        AttemptDialog
+        AttemptDialog,
+        FailedMatch,
+        SuccessfulMatch
     }
     private Dictionary<VAType, AudioClip[]> vaAudioClips;
 
@@ -146,6 +150,8 @@ public class SoundManager : MonoBehaviour
         vaAudioClips = new Dictionary<VAType, AudioClip[]>();
         vaAudioClips.Add(VAType.Quips, va_quips);
         vaAudioClips.Add(VAType.AttemptDialog, va_attempts);
+        vaAudioClips.Add(VAType.FailedMatch, va_failedMatch);
+        vaAudioClips.Add(VAType.SuccessfulMatch, va_successfulMatch);
     }
 
     private void InitAudioSources()
@@ -437,13 +443,21 @@ public class SoundManager : MonoBehaviour
         switch (name)
         {
             case "quip":
-                PlayVA(VAType.Quips, "echo-5-2", pitch);
+                PlayVA(VAType.Quips, "", pitch);
                 break;
             case "attempt":
             case "attempt dialog":
             case "evaluate":
             case "evaluate match":
-                PlayVA(VAType.AttemptDialog, "echo-5-2", pitch);
+                PlayVA(VAType.AttemptDialog, "", pitch);
+                break;
+            case "match fail":
+            case "fail":
+                PlayVA(VAType.FailedMatch, "", pitch);
+                break;
+            case "match success":
+            case "success":
+                PlayVA(VAType.SuccessfulMatch, "", pitch);
                 break;
             default: break;
         }

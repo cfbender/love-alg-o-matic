@@ -223,6 +223,7 @@ public class GameManager : MonoBehaviour
         }
 
         Managers.SoundManager.PlaySFX("match " + (successful == true ? "success" : "fail"));
+        Managers.SoundManager.TryPlayVA(successful == true ? "success" : "fail");
 
         Managers.ScoreManager.UpdateStreaks(successful);
 
