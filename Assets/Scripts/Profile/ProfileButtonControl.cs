@@ -7,17 +7,18 @@ public class ProfileButtonControl : MonoBehaviour
     public Color NormalColor;
     public Color SelectedColor;
 
-    [Header("Animation Settings")] 
+    [Header("Animation Settings")]
     public float InitialDelay = .1f;
+    public float SoundInitialDelay = .0999f;
     public Vector3 SmallScale = new Vector3(.1f, .1f, 1);
     public float IntroDuration = 0.5f;
     public Ease IntroEaseType = Ease.OutBack;
-    
+
     public float OutroDuration = 0.5f;
     public Ease OutroEaseType = Ease.OutQuint;
-    
+
     private Profile _profile;
-    
+
     private Image _tileImage;
 
     public void AssignProfile(Profile profile, int index = 0)
@@ -28,7 +29,7 @@ public class ProfileButtonControl : MonoBehaviour
         {
             _profile = profile;
             AssignProfileSprites();
-            PerformIntroSequence(index);    
+            PerformIntroSequence(index);
         }
         else
         {
@@ -54,6 +55,10 @@ public class ProfileButtonControl : MonoBehaviour
         var sequence = DOTween.Sequence();
         sequence.AppendInterval(InitialDelay * index);
         sequence.Append(transform.DOScale(Vector3.one, IntroDuration).SetEase(IntroEaseType));
+
+        var soundSequence = DOTween.Sequence();
+        soundSequence.AppendInterval(SoundInitialDelay * index);
+        soundSequence.AppendCallback(() => Managers.SoundManager.PlaySFX("profile in"));
     }
 
     private void PerformProfileSwapAnimation(Profile newProfile)
@@ -97,9 +102,9 @@ public class ProfileButtonControl : MonoBehaviour
         else
         {
             FacialHairImageComponent.enabled = true;
-            FacialHairImageComponent.sprite = Managers.ProfileSpriteManager.FacialHairs[_profile.FacialHairId];    
+            FacialHairImageComponent.sprite = Managers.ProfileSpriteManager.FacialHairs[_profile.FacialHairId];
         }
-        
+
         if (_profile.HairId == -1)
         {
             HairImageComponent.enabled = false;
@@ -107,9 +112,9 @@ public class ProfileButtonControl : MonoBehaviour
         else
         {
             HairImageComponent.enabled = true;
-            HairImageComponent.sprite = Managers.ProfileSpriteManager.Hairs[_profile.HairId];    
+            HairImageComponent.sprite = Managers.ProfileSpriteManager.Hairs[_profile.HairId];
         }
-        
+
         if (_profile.HatId == -1)
         {
             HatImageComponent.enabled = false;
@@ -117,10 +122,10 @@ public class ProfileButtonControl : MonoBehaviour
         else
         {
             HatImageComponent.enabled = true;
-            HatImageComponent.sprite = Managers.ProfileSpriteManager.Hats[_profile.HatId];  
+            HatImageComponent.sprite = Managers.ProfileSpriteManager.Hats[_profile.HatId];
         }
     }
-    
+
     private void AssignComponents()
     {
         BackgroundImageComponent = transform.Find("Background").GetComponent<Image>();

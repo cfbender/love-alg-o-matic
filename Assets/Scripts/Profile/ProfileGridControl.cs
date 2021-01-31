@@ -10,7 +10,7 @@ public class ProfileGridControl : MonoBehaviour
 
     public Transform ProfileGridUI;
 
-    [Header("Chat Bubble")] 
+    [Header("Chat Bubble")]
     public Vector2 ChatBubbleOffset;
     public ChatBubbleControl ChatBubblePrefab;
     private Transform _canvasTransform;
@@ -19,11 +19,11 @@ public class ProfileGridControl : MonoBehaviour
     {
         _canvasTransform = GameObject.Find("Canvas").transform;
     }
-    
+
     public void InitializeProfileButtons()
     {
         ClearExistingProfiles();
-        
+
         for (var i = 0; i < maxProfileCount; i++)
         {
             var profile = new Profile();
@@ -36,17 +36,18 @@ public class ProfileGridControl : MonoBehaviour
     public void ActivateProfileButton(Profile profile, bool active)
     {
         _profileButtonControls[profile].SetTileActive(active);
+        Managers.SoundManager.PlaySFX("profile " + (active == true ? "select" : "deselect"));
     }
 
     public void RemoveAndReplaceMatchedPair(Profile profile1, Profile profile2)
     {
-       var newProfile1 = new Profile(); 
-       var newProfile2 = new Profile();
+        var newProfile1 = new Profile();
+        var newProfile2 = new Profile();
 
-       _profileButtonControls[newProfile1] = _profileButtonControls[profile1];
-       _profileButtonControls[newProfile1].AssignProfile(newProfile1);
-       _profileButtonControls[newProfile2] = _profileButtonControls[profile2];
-       _profileButtonControls[newProfile2].AssignProfile(newProfile2);
+        _profileButtonControls[newProfile1] = _profileButtonControls[profile1];
+        _profileButtonControls[newProfile1].AssignProfile(newProfile1);
+        _profileButtonControls[newProfile2] = _profileButtonControls[profile2];
+        _profileButtonControls[newProfile2].AssignProfile(newProfile2);
     }
 
     private void ClearExistingProfiles()
@@ -57,9 +58,9 @@ public class ProfileGridControl : MonoBehaviour
         }
         else
         {
-            _profileButtonControls.Clear();    
+            _profileButtonControls.Clear();
         }
-        
+
         var childCount = ProfileGridUI.childCount;
 
         for (int i = childCount - 1; i >= 0; i--)
@@ -67,7 +68,7 @@ public class ProfileGridControl : MonoBehaviour
             Destroy(ProfileGridUI.GetChild(i).gameObject);
         }
     }
-    
+
     #region ChatBubbles
     public void DisplayChatBubbleForRandomProfile()
     {
@@ -80,5 +81,5 @@ public class ProfileGridControl : MonoBehaviour
         chatBubble.transform.position = (Vector2)profileButton.transform.position + ChatBubbleOffset;
         chatBubble.AssignText(calloutText);
     }
-     #endregion
+    #endregion
 }

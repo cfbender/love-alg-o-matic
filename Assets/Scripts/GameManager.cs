@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
             Managers.ProfileGridControl.RemoveAndReplaceMatchedPair(_selectedProfile1, _selectedProfile2);
         }
 
+        Managers.SoundManager.PlaySFX("match " + (successful == true ? "success" : "fail"));
+
         Managers.ScoreManager.UpdateStreaks(successful);
 
         _selectedProfile1 = null;

@@ -2281,6 +2281,7 @@ GameObject:
   - component: {fileID: 1095488190}
   - component: {fileID: 1095488188}
   - component: {fileID: 1095488189}
+  - component: {fileID: 1095488191}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2487,6 +2488,37 @@ MonoBehaviour:
   - {fileID: 21300000, guid: af925c87e30f392438cc6efd58d79bb5, type: 3}
   - {fileID: 21300000, guid: 59ce99c27d87b6c42a5a7ff0d748ce85, type: 3}
   - {fileID: 21300000, guid: 2da59b0d4d63560468cbfca606bf570f, type: 3}
+--- !u!114 &1095488191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095488181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9a21f7effc00d43be88414cba3d64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music_pre: {fileID: 0}
+  music_start: {fileID: 0}
+  music_during: {fileID: 0}
+  music_tallying: {fileID: 0}
+  music_failure: {fileID: 0}
+  music_success: {fileID: 0}
+  music_credits: {fileID: 0}
+  sfx_Profile_In: {fileID: 8300000, guid: 5717e3379e0e22a4dbb9480a537ae6b1, type: 3}
+  sfx_Profile_Out: {fileID: 0}
+  sfx_Profile_ClickIn: {fileID: 8300000, guid: e7143203e1f8e5b4d8ada74bb957a635, type: 3}
+  sfx_Profile_ClickOut: {fileID: 8300000, guid: d2d81b26f42227a4b97a952c76997dcd, type: 3}
+  sfx_Heart_Up: {fileID: 0}
+  sfx_Heart_Down: {fileID: 0}
+  sfx_InterestReveal: {fileID: 0}
+  sfx_ChatBubble_popup: {fileID: 0}
+  sfx_ChatBubble_convo: {fileID: 0}
+  sfx_FailedMatch: {fileID: 8300000, guid: cb8bef89af9f3f04fbb0ac95a06a6b73, type: 3}
+  sfx_SuccessfulMatch: {fileID: 8300000, guid: b6b5c853073a61b4ebc74b7c86e0dd76, type: 3}
+  sfx_TickTock: {fileID: 0}
 --- !u!1001 &1149376055
 PrefabInstance:
   m_ObjectHideFlags: 0

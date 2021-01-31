@@ -44,6 +44,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip sfx_Profile_In;
     public AudioClip sfx_Profile_Out;
+    public AudioClip sfx_Profile_ClickIn;
+    public AudioClip sfx_Profile_ClickOut;
     public AudioClip sfx_Heart_Up;
     public AudioClip sfx_Heart_Down;
     public AudioClip sfx_InterestReveal;
@@ -57,6 +59,9 @@ public class SoundManager : MonoBehaviour
     {
         Profile_In,
         Profile_Out,
+
+        Profile_ClickIn,
+        Profile_ClickOut,
 
         Heart_Up,
         Heart_Down,
@@ -103,6 +108,8 @@ public class SoundManager : MonoBehaviour
         sfxAudioClips = new Dictionary<SFXType, AudioClip>();
         sfxAudioClips.Add(SFXType.Profile_In, sfx_Profile_In);
         sfxAudioClips.Add(SFXType.Profile_Out, sfx_Profile_Out);
+        sfxAudioClips.Add(SFXType.Profile_ClickIn, sfx_Profile_ClickIn);
+        sfxAudioClips.Add(SFXType.Profile_ClickOut, sfx_Profile_ClickOut);
         sfxAudioClips.Add(SFXType.Heart_Up, sfx_Heart_Up);
         sfxAudioClips.Add(SFXType.Heart_Down, sfx_Heart_Down);
         sfxAudioClips.Add(SFXType.InterestReveal, sfx_InterestReveal);
@@ -189,7 +196,16 @@ public class SoundManager : MonoBehaviour
 
         switch (sfxType)
         {
-
+            case SFXType.Profile_ClickIn:
+            case SFXType.Profile_ClickOut:
+            case SFXType.Profile_In:
+            case SFXType.Profile_Out:
+            case SFXType.SuccessfulMatch:
+                pitch = 1.0f;
+                break;
+            case SFXType.FailedMatch:
+                pitch = 2.0f;
+                break;
             default: break;
         }
 
@@ -249,6 +265,33 @@ public class SoundManager : MonoBehaviour
         {
             string effect = effectsSplit[i];
             AddEffect(effect, sfxGameObject);
+        }
+    }
+
+    public void PlaySFX(string name)
+    {
+        switch (name)
+        {
+            case "profile select":
+                PlaySFX(SFXType.Profile_ClickIn);
+                break;
+            case "profile unselect":
+            case "profile deselect":
+                PlaySFX(SFXType.Profile_ClickOut);
+                break;
+            case "profile in":
+                PlaySFX(SFXType.Profile_In);
+                break;
+            case "profile out":
+                PlaySFX(SFXType.Profile_Out);
+                break;
+            case "match success":
+                PlaySFX(SFXType.SuccessfulMatch);
+                break;
+            case "match fail":
+                PlaySFX(SFXType.FailedMatch);
+                break;
+            default: break;
         }
     }
 
