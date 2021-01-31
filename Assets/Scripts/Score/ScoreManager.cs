@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text ScoreText;
-    public TextMeshProUGUI StreakText;
     public ScoreScreenControl ScoreScreenControl;
 
     public List<MatchedProfile> matches = new List<MatchedProfile>();
@@ -50,8 +49,6 @@ public class ScoreManager : MonoBehaviour
                 longestMissedStreak = currentStreak;
             }
         }
-
-        StreakText.text = $"Current streak: {currentStreak} {(currentStreakSuccessful ? "match" : "mismatch")}{(currentStreak == 1 ? "" : "es")}";
     }
 
     public void ShowFinalScoreScreen()
@@ -67,7 +64,6 @@ public class ScoreManager : MonoBehaviour
 
     public void ResetScores()
     {
-        StreakText.text = string.Empty;
         matches = new List<MatchedProfile>();
         failures = new List<MatchedProfile>();
         matchCount = 0;
