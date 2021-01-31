@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ProfileGridControl : MonoBehaviour
 {
     public int maxProfileCount = 20;
     public ProfileButtonControl ProfileButtonPrefab;
-    private Dictionary<Profile, ProfileButtonControl> _profileButtonControls;
+    public Dictionary<Profile, ProfileButtonControl> ProfileButtonControls;
 
     public Transform ProfileGridUI;
 
-    [Header("Chat Bubble")]
-    public Vector2 ChatBubbleOffset;
+    [Header("Chat Bubble")] public Vector2 ChatBubbleOffset;
     public ChatBubbleControl ChatBubblePrefab;
     private Transform _canvasTransform;
 
@@ -30,13 +30,13 @@ public class ProfileGridControl : MonoBehaviour
             var profile = new Profile();
             var profileButton = Instantiate(ProfileButtonPrefab, ProfileGridUI);
             profileButton.AssignProfile(profile, i);
-            _profileButtonControls.Add(profile, profileButton);
+            ProfileButtonControls.Add(profile, profileButton);
         }
     }
 
     public void ActivateProfileButton(Profile profile, bool active)
     {
-        _profileButtonControls[profile].SetTileActive(active);
+        ProfileButtonControls[profile].SetTileActive(active);
         Managers.SoundManager.PlaySFX("profile " + (active == true ? "select" : "deselect"));
     }
 
@@ -44,31 +44,31 @@ public class ProfileGridControl : MonoBehaviour
     {
         var newProfile1 = new Profile();
         var newProfile2 = new Profile();
-        
-        var button1 =_profileButtonControls[profile1];
-        var button2 = _profileButtonControls[profile2];
 
-        _profileButtonControls.Remove(profile1);
-        _profileButtonControls.Remove(profile2);
-        
+        var button1 = ProfileButtonControls[profile1];
+        var button2 = ProfileButtonControls[profile2];
+
+        ProfileButtonControls.Remove(profile1);
+        ProfileButtonControls.Remove(profile2);
+
         button1.AssignProfile(newProfile1);
         button2.AssignProfile(newProfile2);
-        
-        _profileButtonControls.Add(newProfile1, button1);
-        _profileButtonControls.Add(newProfile2, button2);
+
+        ProfileButtonControls.Add(newProfile1, button1);
+        ProfileButtonControls.Add(newProfile2, button2);
     }
 
     public void ActivateGridButtons()
     {
-        foreach (var kvp in _profileButtonControls)
+        foreach (var kvp in ProfileButtonControls)
         {
             kvp.Value.GetComponent<Button>().interactable = true;
         }
     }
-    
+
     public void DisableGridButtons()
     {
-        foreach (var kvp in _profileButtonControls)
+        foreach (var kvp in ProfileButtonControls)
         {
             kvp.Value.GetComponent<Button>().interactable = false;
         }
@@ -76,13 +76,13 @@ public class ProfileGridControl : MonoBehaviour
 
     private void ClearExistingProfiles()
     {
-        if (_profileButtonControls == null)
+        if (ProfileButtonControls == null)
         {
-            _profileButtonControls = new Dictionary<Profile, ProfileButtonControl>();
+            ProfileButtonControls = new Dictionary<Profile, ProfileButtonControl>();
         }
         else
         {
-            _profileButtonControls.Clear();
+            ProfileButtonControls.Clear();
         }
 
         var childCount = ProfileGridUI.childCount;
@@ -94,16 +94,22 @@ public class ProfileGridControl : MonoBehaviour
     }
 
     #region ChatBubbles
-    public void DisplayChatBubbleForRandomProfile()
+
+    public (Profile, ChatBubbleControl chatBubble) DisplayChatBubbleForRandomProfile(
+        IEnumerable<Profile> bubbleProfiles)
     {
-        var profile = _profileButtonControls.Keys.ToList()[Random.Range(0, _profileButtonControls.Count)];
-        var profileButton = _profileButtonControls[profile];
+        var bubbleList = bubbleProfiles.ToList();
+        var profile = bubbleList.ToList()[Random.Range(0, bubbleList.Count)];
+        var profileButton = ProfileButtonControls[profile];
         var interest = profile.Interests[Random.Range(0, profile.Interests.Count)];
         var calloutText = interest.uniqueCallouts[Random.Range(0, interest.uniqueCallouts.Length)];
-
         var chatBubble = Instantiate(ChatBubblePrefab, _canvasTransform);
-        chatBubble.transform.position = (Vector2)profileButton.transform.position + ChatBubbleOffset;
+        chatBubble.transform.position = (Vector2) profileButton.transform.position + ChatBubbleOffset;
         chatBubble.AssignText(calloutText);
+        chatBubble.AssignProfile(profile);
+
+        return (profile, chatBubble);
     }
+
     #endregion
 }

@@ -7,6 +7,8 @@ public class ScoreScreenControl : MonoBehaviour
     public float profileDisplayDelay = 5;
 
     public TextMeshProUGUI resultText;
+    public TextMeshProUGUI matchCountText;
+    public TextMeshProUGUI mismatchCountText;
     public TextMeshProUGUI bestStreakText;
     public TextMeshProUGUI worstStreakText;
     public EvaluationProfileControl evaluationProfileControl1;
@@ -18,6 +20,8 @@ public class ScoreScreenControl : MonoBehaviour
 
     public void InitializeScoreScreen()
     {
+        matchCountText.text = $"Happy couples matched: {Managers.ScoreManager.matchCount}";
+        mismatchCountText.text = $"Couples matched: {Managers.ScoreManager.failureCount}";
         bestStreakText.text = $"Best Streak: {Managers.ScoreManager.longestSuccessStreak} matches";
         worstStreakText.text = $"Worst Streak: {Managers.ScoreManager.longestMissedStreak} mismatches";
         gameObject.SetActive(true);

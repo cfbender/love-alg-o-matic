@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,8 +17,7 @@ public class GameManager : MonoBehaviour
     private float _chatBubbleTimer;
     private bool _chatBubbleCooldownActive;
 
-    [Header("Ready State Settings")]
-    public GameObject ReadyOverlay;
+    [Header("Ready State Settings")] public GameObject ReadyOverlay;
     public float ReadyDelay = 3f;
     private bool ReadyScreenActive;
     private TextMeshProUGUI ReadyCountDownText;
@@ -24,8 +25,7 @@ public class GameManager : MonoBehaviour
     public float InitDelay = 3f;
     private bool _gameActive;
 
-    [Header("Round Time")]
-    public TextMeshProUGUI TimerText;
+    [Header("Round Time")] public TextMeshProUGUI TimerText;
     public float RoundTimeMax = 180;
     private float _roundTimer;
     private bool _roundOver;
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         Managers.SoundManager.PlayMusic("during");
-
     }
 
     private IEnumerator DelayedProfileInit()
@@ -116,6 +115,7 @@ public class GameManager : MonoBehaviour
             _gameActive = false;
             _roundOver = true;
             Managers.ProfileGridControl.DisableGridButtons();
+            RemoveAllChatBubbles();
             Managers.ScoreManager.ShowFinalScoreScreen();
             _selectedProfile1 = null;
             _selectedProfile2 = null;
@@ -126,33 +126,44 @@ public class GameManager : MonoBehaviour
 
     #region ProfileGridChatBubbles
 
-    [Header("Chat Bubble Settings")]
-    public int MaxChatBubbles = 4;
+    [Header("Chat Bubble Settings")] public int MaxChatBubbles = 4;
     [Range(0, 1)] public float ChatBubbleChancePerFrame = 0.9f;
-    private int chatBubbleCount;
+    private Dictionary<Profile, ChatBubbleControl> chatBubbles = new Dictionary<Profile, ChatBubbleControl>();
 
     private void HandleChatBubbles()
     {
-        if (chatBubbleCount >= MaxChatBubbles) // Don't display too many chat bubbles at once
+        if (chatBubbles.Count >= MaxChatBubbles) // Don't display too many chat bubbles at once
         {
             return;
         }
 
-        if (Random.Range(0f, 1f) <= ChatBubbleChancePerFrame) return; // small chance each frame to display a new chat bubble
+        if (Random.Range(0f, 1f) <= ChatBubbleChancePerFrame)
+            return; // small chance each frame to display a new chat bubble
 
-        Managers.ProfileGridControl.DisplayChatBubbleForRandomProfile();
+        var profilesWithoutBubbles =
+            Managers.ProfileGridControl.ProfileButtonControls.Keys.Where(profile => !chatBubbles.ContainsKey(profile));
+        var (bubbleId, chatBubble) =
+            Managers.ProfileGridControl.DisplayChatBubbleForRandomProfile(profilesWithoutBubbles);
+        chatBubbles.Add(bubbleId, chatBubble);
         _chatBubbleCooldownActive = true;
         _chatBubbleTimer = 0;
     }
 
-    public void ChatBubbleAdded()
+    public void RemoveAllChatBubbles()
     {
-        chatBubbleCount++;
+        var bubblesClone = new Dictionary<Profile, ChatBubbleControl>(chatBubbles);
+        foreach (var bubble in bubblesClone.Values)
+        {
+            if (bubble != null)
+            {
+                bubble.Destroy();
+            }
+        }
     }
 
-    public void ChatBubbleRemoved()
+    public void RemoveChatBubble(Profile profile)
     {
-        chatBubbleCount--;
+        chatBubbles.Remove(profile);
     }
 
     #endregion
