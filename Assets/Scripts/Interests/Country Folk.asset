@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Country Folk
   m_EditorClassIdentifier: 
   uniqueCallouts:
-  - 'I '
   - I'M A COWBOY!
   - Yee-Haws and Yippee Ki Yays
   - Everything's bigger in Texas!
