@@ -30,9 +30,11 @@ public class GameManager : MonoBehaviour
     private float _roundTimer;
     private bool _roundOver;
 
+    public GameObject titleScreenObject;
+
     private void Start()
     {
-        BeginNewRound();
+        titleScreenObject.SetActive(true);
     }
 
     private void Update()
