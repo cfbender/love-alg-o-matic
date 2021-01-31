@@ -5284,6 +5284,7 @@ GameObject:
   - component: {fileID: 29187530101434380}
   - component: {fileID: 29187530101434369}
   - component: {fileID: 29187530101434370}
+  - component: {fileID: 622315015712060873}
   - component: {fileID: 29187530101434371}
   m_Layer: 5
   m_Name: start Button
@@ -5350,6 +5351,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &622315015712060873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29187530101434381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a8a85308710484a869b9e4614eb6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors: []
+  duration: 2
+  timer: 0
+  currentColor: {r: 0.5882353, g: 0, b: 0, a: 0.57254905}
+  startColor: {r: 0.039337788, g: 0.735849, b: 0.47668526, a: 0.57254905}
+  canLerp: 0
+  changeMainDisplay: 0
+  texts:
+  - {fileID: 0}
+  images:
+  - {fileID: 29187530101434370}
 --- !u!114 &29187530101434371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6072,6 +6096,7 @@ GameObject:
   - component: {fileID: 2036332514429796381}
   - component: {fileID: 3668352458546738083}
   - component: {fileID: 1899445660783312637}
+  - component: {fileID: 8943026654645599154}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -6136,6 +6161,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8943026654645599154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546708194240243171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a8a85308710484a869b9e4614eb6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors: []
+  duration: 3
+  timer: 0
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  startColor: {r: 1, g: 0.454902, b: 0, a: 1}
+  canLerp: 1
+  changeMainDisplay: 0
+  texts: []
+  images:
+  - {fileID: 1899445660783312637}
 --- !u!1 &6426902894294045827
 GameObject:
   m_ObjectHideFlags: 0
