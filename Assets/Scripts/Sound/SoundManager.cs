@@ -149,13 +149,35 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(MusicType musicType)
+    public void PlayMusic(string name)
     {
-        if (musicEnabled)
+        if (!musicEnabled) return;
+        switch (name)
         {
-            musicAudioSource.clip = musicAudioClips[musicType];
-            musicAudioSource.Play();
+            case "pre":
+                musicAudioSource.clip = musicAudioClips[MusicType.Pre];
+                break;
+            case "start":
+                musicAudioSource.clip = musicAudioClips[MusicType.Start];
+                break;
+            case "during":
+                musicAudioSource.clip = musicAudioClips[MusicType.During];
+                break;
+            case "tally":
+                musicAudioSource.clip = musicAudioClips[MusicType.Tally];
+                break;
+            case "failure":
+                musicAudioSource.clip = musicAudioClips[MusicType.Failure];
+                break;
+            case "success":
+                musicAudioSource.clip = musicAudioClips[MusicType.Success];
+                break;
+            case "credits":
+                musicAudioSource.clip = musicAudioClips[MusicType.Credits];
+                break;
+            default: break;
         }
+        musicAudioSource.Play();
     }
 
     private bool SFXEnabled
@@ -190,9 +212,13 @@ public class SoundManager : MonoBehaviour
         return volume;
     }
 
-    private void AdjustSFXPitchHelper(AudioSource audioSource, SFXType sfxType)
+    private void AdjustSFXPitchHelper(
+        AudioSource audioSource,
+        SFXType sfxType,
+        float pitch = 1.0f
+        )
     {
-        float pitch = UnityEngine.Random.Range(0.75f, 1.0f);
+        if (pitch == -1) pitch = UnityEngine.Random.Range(0.75f, 1.0f);
 
         switch (sfxType)
         {
@@ -268,34 +294,37 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(string name)
+    public void PlaySFX(string name, float pitch = 1.0f)
     {
         switch (name)
         {
             case "profile select":
-                PlaySFX(SFXType.Profile_ClickIn);
+                PlaySFX(SFXType.Profile_ClickIn, "", pitch);
                 break;
             case "profile unselect":
             case "profile deselect":
-                PlaySFX(SFXType.Profile_ClickOut);
+                PlaySFX(SFXType.Profile_ClickOut, "", pitch);
                 break;
             case "profile in":
-                PlaySFX(SFXType.Profile_In);
+                PlaySFX(SFXType.Profile_In, "", pitch);
                 break;
             case "profile out":
-                PlaySFX(SFXType.Profile_Out);
+                PlaySFX(SFXType.Profile_Out, "", pitch);
                 break;
             case "match success":
-                PlaySFX(SFXType.SuccessfulMatch);
+                PlaySFX(SFXType.SuccessfulMatch, "", pitch);
                 break;
             case "match fail":
-                PlaySFX(SFXType.FailedMatch);
+                PlaySFX(SFXType.FailedMatch, "", pitch);
+                break;
+            case "tick tock":
+                PlaySFX(SFXType.TickTock, "", pitch);
                 break;
             default: break;
         }
     }
 
-    public void PlaySFX(SFXType sfxType, string effects = "")
+    public void PlaySFX(SFXType sfxType, string effects = "", float pitch = 1.0f)
     {
         AudioClip sfxAudioClip = sfxAudioClips[sfxType];
 
@@ -304,7 +333,7 @@ public class SoundManager : MonoBehaviour
         AudioSource sfxAudioSource = NewAudioSource("SFX");
         GameObject sfxGameObject = sfxAudioSource.gameObject;
 
-        AdjustSFXPitchHelper(sfxAudioSource, sfxType);
+        if (pitch != 1.0) AdjustSFXPitchHelper(sfxAudioSource, sfxType, pitch);
         float volume = getSFXVolumeHelper(sfxType);
         if (effects != "") AdjustSFXEffects(effects, sfxGameObject);
 

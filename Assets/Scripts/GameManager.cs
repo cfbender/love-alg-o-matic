@@ -59,12 +59,28 @@ public class GameManager : MonoBehaviour
         Managers.ScoreManager.HideFinalScoreScreen();
         Managers.ScoreManager.ResetScores();
         StartCoroutine(DelayedProfileInit());
+        StartCoroutine(CountdownSounds());
         ReadyOverlay.SetActive(true);
         ReadyScreenActive = true;
         ReadyCountDownText = ReadyOverlay.transform.Find("Ready Count Down Text").GetComponent<TextMeshProUGUI>();
         _roundTimer = 0;
         _readyTextTimer = 0;
         _roundOver = false;
+    }
+
+    private IEnumerator CountdownSounds()
+    {
+        Managers.SoundManager.PlaySFX("tick tock");
+        yield return new WaitForSeconds(1.0f);
+        Managers.SoundManager.PlaySFX("tick tock");
+        yield return new WaitForSeconds(1.0f);
+        Managers.SoundManager.PlaySFX("tick tock");
+        yield return new WaitForSeconds(1.0f);
+        Managers.SoundManager.PlaySFX("tick tock", 3.0f);
+
+        yield return new WaitForSeconds(0.5f);
+        Managers.SoundManager.PlayMusic("during");
+
     }
 
     private IEnumerator DelayedProfileInit()
