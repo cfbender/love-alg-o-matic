@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 [RequireComponent(typeof(GridLayoutGroup))]
 public class ScaleGrid : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class ScaleGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform = (RectTransform)base.transform;
+        grid = GetComponent<GridLayoutGroup>();
         UpdateCellSize();
     }
 
@@ -32,23 +34,24 @@ public class ScaleGrid : MonoBehaviour
         UpdateCellSize();
     }
 
-#if UNITY_EDITOR
-    [ExecuteAlways]
-    void Update()
-    {
-        UpdateCellSize();
-    }
-#endif
+    // #if UNITY_EDITOR
+    //     [ExecuteAlways]
+    //     void Update()
+    //     {
+    //         UpdateCellSize();
+    //     }
+    // #endif
 
-    void OnValidate()
-    {
-        transform = (RectTransform)base.transform;
-        grid = GetComponent<GridLayoutGroup>();
-        UpdateCellSize();
-    }
+    // void OnValidate()
+    // {
+    //     transform = (RectTransform)base.transform;
+    //     grid = GetComponent<GridLayoutGroup>();
+    //     UpdateCellSize();
+    // }
 
     void UpdateCellSize()
     {
+        transform = (RectTransform)base.transform;
         grid = GetComponent<GridLayoutGroup>();
 
         var count = grid.constraintCount;
