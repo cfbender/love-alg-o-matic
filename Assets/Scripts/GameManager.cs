@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         _selectedProfile1 = null;
         _selectedProfile2 = null;
 
-        if (Managers.ScoreManager.matchCount > 2)
+        if (Managers.ScoreManager.matchCount > Managers.ScoreManager.maxMatches)
         {
             Managers.ScoreManager.ShowFinalScoreScreen();
         }

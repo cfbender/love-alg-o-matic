@@ -4,14 +4,11 @@ using UnityEngine.UI;
 
 public class EvaluationProfileControl : MonoBehaviour
 {
-    public Sprite profilePlaceholder;
-    public Sprite emptySprite;
     public TextMeshProUGUI nameText;
     private Profile _profile;
 
     private void Start()
     {
-        AssignComponents();
         ClearProfile();
     }
 
@@ -32,14 +29,14 @@ public class EvaluationProfileControl : MonoBehaviour
 
     #region ProfileImage
 
-    private Image BackgroundImageComponent;
-    private Image BodyImageComponent;
-    private Image EyesImageComponent;
-    private Image FacialHairImageComponent;
-    private Image HairImageComponent;
-    private Image HatImageComponent;
-    private Image HeadImageComponent;
-    private Image MouthImageComponent;
+    public Image BackgroundImageComponent;
+    public Image BodyImageComponent;
+    public Image EyesImageComponent;
+    public Image FacialHairImageComponent;
+    public Image HairImageComponent;
+    public Image HatImageComponent;
+    public Image HeadImageComponent;
+    public Image MouthImageComponent;
 
     private void AssignProfileSprites()
     {
@@ -92,18 +89,6 @@ public class EvaluationProfileControl : MonoBehaviour
         FacialHairImageComponent.gameObject.SetActive(active);
         HairImageComponent.gameObject.SetActive(active);
         HatImageComponent.gameObject.SetActive(active);
-    }
-
-    private void AssignComponents()
-    {
-        BackgroundImageComponent = transform.Find("Background").GetComponent<Image>();
-        BodyImageComponent = transform.Find("Body").GetComponent<Image>();
-        EyesImageComponent = transform.Find("Eyes").GetComponent<Image>();
-        FacialHairImageComponent = transform.Find("Facial Hair").GetComponent<Image>();
-        HairImageComponent = transform.Find("Hair").GetComponent<Image>();
-        HatImageComponent = transform.Find("Hat").GetComponent<Image>();
-        HeadImageComponent = transform.Find("Head").GetComponent<Image>();
-        MouthImageComponent = transform.Find("Mouth").GetComponent<Image>();
     }
 
     #endregion

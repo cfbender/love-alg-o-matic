@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625467b81213cc84a8379935479c75e1, type: 3}
   m_Name: Adrenaline Junkies
   m_EditorClassIdentifier: 
-  uniqueCallouts: []
+  uniqueCallouts:
+  - tea
