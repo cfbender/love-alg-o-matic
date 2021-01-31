@@ -25,6 +25,12 @@ public class ScoreScreenControl : MonoBehaviour
         _profileDisplayTimer = 0;
     }
 
+    public void DisableScoreScreen()
+    {
+        _scoreScreenActive = false;
+        gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (!_scoreScreenActive) return;

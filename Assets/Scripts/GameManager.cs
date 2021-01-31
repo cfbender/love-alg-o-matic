@@ -32,12 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DelayedProfileInit());
-        ReadyOverlay.SetActive(true);
-        ReadyScreenActive = true;
-        ReadyCountDownText = ReadyOverlay.transform.Find("Ready Count Down Text").GetComponent<TextMeshProUGUI>();
-        _roundTimer = 0;
-        _roundOver = false;
+       BeginNewRound();
     }
 
     private void Update()
@@ -55,6 +50,18 @@ public class GameManager : MonoBehaviour
         if (_roundOver) return;
         
         HandleChatBubbles();
+    }
+
+    public void BeginNewRound()
+    {
+        Managers.ScoreManager.HideFinalScoreScreen();
+        StartCoroutine(DelayedProfileInit());
+        ReadyOverlay.SetActive(true);
+        ReadyScreenActive = true;
+        ReadyCountDownText = ReadyOverlay.transform.Find("Ready Count Down Text").GetComponent<TextMeshProUGUI>();
+        _roundTimer = 0;
+        _readyTextTimer = 0;
+        _roundOver = false;
     }
 
     private IEnumerator DelayedProfileInit()
@@ -86,6 +93,8 @@ public class GameManager : MonoBehaviour
             _roundOver = true;
             Managers.ProfileGridControl.DisableGridButtons();
             Managers.ScoreManager.ShowFinalScoreScreen();
+            _selectedProfile1 = null;
+            _selectedProfile2 = null;
         }
     }
 
