@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ScoreScreenControl : MonoBehaviour
 {
@@ -13,12 +13,29 @@ public class ScoreScreenControl : MonoBehaviour
     public EvaluationProfileControl evaluationProfileControl2;
     public LoveMeterControl loveMeterControl;
 
+    private bool _scoreScreenActive = false;
+    private float _profileDisplayTimer;
     public void InitializeScoreScreen()
     {
         bestStreakText.text = $"Best Streak: {Managers.ScoreManager.longestSuccessStreak} matches";
         worstStreakText.text = $"Worst Streak: {Managers.ScoreManager.longestMissedStreak} mismatches";
         gameObject.SetActive(true);
         DisplayMatchedPair();
+        _scoreScreenActive = true;
+        _profileDisplayTimer = 0;
+    }
+
+    private void Update()
+    {
+        if (!_scoreScreenActive) return;
+
+        _profileDisplayTimer += Time.deltaTime;
+
+        if (_profileDisplayTimer >= profileDisplayDelay)
+        {
+            _profileDisplayTimer = 0;
+            DisplayMatchedPair();
+        }
     }
 
     public void DisplayMatchedPair()
@@ -29,14 +46,5 @@ public class ScoreScreenControl : MonoBehaviour
         evaluationProfileControl2.AssignProfile(match.Profile2);
 
         loveMeterControl.UpdateLoveMeter(match.EvaluationResult, match.EvaluationResult.Matches.Count);
-
-        StartCoroutine(DelayedDisplay());
-    }
-
-    private IEnumerator DelayedDisplay()
-    {
-        yield return new WaitForSeconds(profileDisplayDelay);
-
-        DisplayMatchedPair();
     }
 }

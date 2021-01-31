@@ -7,11 +7,6 @@ public class EvaluationProfileControl : MonoBehaviour
     public TextMeshProUGUI nameText;
     private Profile _profile;
 
-    private void Start()
-    {
-        ClearProfile();
-    }
-
     public void AssignProfile(Profile profile)
     {
         _profile = profile;
