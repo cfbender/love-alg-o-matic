@@ -36,6 +36,7 @@ public class ProfileGridControl : MonoBehaviour
 
     public void ActivateProfileButton(Profile profile, bool active)
     {
+        if (profile == null) return;
         ProfileButtonControls[profile].SetTileActive(active);
         Managers.SoundManager.PlaySFX("profile " + (active == true ? "select" : "deselect"));
     }
