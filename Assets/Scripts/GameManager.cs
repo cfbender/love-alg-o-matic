@@ -121,24 +121,33 @@ public class GameManager : MonoBehaviour
 
     #region ProfileGridChatBubbles
 
+    [Header("Chat Bubble Settings")]
+    public int MaxChatBubbles = 4;
+    [Range(0, 1)] public float ChatBubbleChancePerFrame = 0.9f;
+    private int chatBubbleCount;
+    
     private void HandleChatBubbles()
     {
-        if (_chatBubbleCooldownActive) // Don't display too many chat bubbles at once
+        if (chatBubbleCount >= MaxChatBubbles) // Don't display too many chat bubbles at once
         {
-            _chatBubbleTimer += Time.deltaTime;
-
-            if (_chatBubbleTimer < ChatBubbleCooldown) return;
-
-            _chatBubbleCooldownActive = false;
+            return;
         }
 
-        ;
-
-        if (Random.Range(0f, 1f) <= .9f) return; // small chance each frame to display a new chat bubble
+        if (Random.Range(0f, 1f) <= ChatBubbleChancePerFrame) return; // small chance each frame to display a new chat bubble
 
         Managers.ProfileGridControl.DisplayChatBubbleForRandomProfile();
         _chatBubbleCooldownActive = true;
         _chatBubbleTimer = 0;
+    }
+
+    public void ChatBubbleAdded()
+    {
+        chatBubbleCount++;
+    }
+
+    public void ChatBubbleRemoved()
+    {
+        chatBubbleCount--;
     }
 
     #endregion

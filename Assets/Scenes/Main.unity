@@ -6241,6 +6241,8 @@ MonoBehaviour:
   TimerText: {fileID: 1788325930}
   RoundTimeMax: 180
   titleScreenObject: {fileID: 115320444}
+  MaxChatBubbles: 4
+  ChatBubbleChancePerFrame: 0.7
 --- !u!114 &1095488187
 MonoBehaviour:
   m_ObjectHideFlags: 0

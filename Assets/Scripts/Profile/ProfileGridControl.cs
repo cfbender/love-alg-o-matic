@@ -44,11 +44,18 @@ public class ProfileGridControl : MonoBehaviour
     {
         var newProfile1 = new Profile();
         var newProfile2 = new Profile();
+        
+        var button1 =_profileButtonControls[profile1];
+        var button2 = _profileButtonControls[profile2];
 
-        _profileButtonControls[newProfile1] = _profileButtonControls[profile1];
-        _profileButtonControls[newProfile1].AssignProfile(newProfile1);
-        _profileButtonControls[newProfile2] = _profileButtonControls[profile2];
-        _profileButtonControls[newProfile2].AssignProfile(newProfile2);
+        _profileButtonControls.Remove(profile1);
+        _profileButtonControls.Remove(profile2);
+        
+        button1.AssignProfile(newProfile1);
+        button2.AssignProfile(newProfile2);
+        
+        _profileButtonControls.Add(newProfile1, button1);
+        _profileButtonControls.Add(newProfile2, button2);
     }
 
     public void ActivateGridButtons()
