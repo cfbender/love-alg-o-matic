@@ -56,6 +56,11 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Final score screen activated.");
     }
 
+    public void HideFinalScoreScreen()
+    {
+        ScoreScreenControl.DisableScoreScreen();
+    }
+
     private void GenerateScoreText()
     {
         ScoreText.text = $"Successful Matches: {matchCount} \n" +
