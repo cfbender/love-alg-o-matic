@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class SoundManager : MonoBehaviour
 {
+    public TextMeshProUGUI soundText;
 
     //MUSIC SPECIFIC
     private AudioSource musicAudioSource;
@@ -180,6 +182,8 @@ public class SoundManager : MonoBehaviour
         if (musicEnableDisable != null)
         {
             musicEnableDisable(musicEnabled);
+
+            if (!musicEnabled) StopMusic();
         }
     }
 
@@ -502,5 +506,18 @@ public class SoundManager : MonoBehaviour
 
         Managers.SoundManager.PlayMusic("pre");
         Managers.SoundManager.PlaySFX("profile select");
+
+        PlayerPrefs.SetInt(musicEnabledKey, 0);
+        PlayerPrefs.SetInt(sfxEnabledKey, 0);
+        PlayerPrefs.SetInt(vaEnabledKey, 0);
+    }
+
+    public void EnableDisableAllSounds()
+    {
+        EnableDisabledMusic();
+        EnableDisabledSFX();
+        EnableDisabledVA();
+
+        soundText.text = "sound-" + (sfxEnabled ? "on" : "off");
     }
 }
