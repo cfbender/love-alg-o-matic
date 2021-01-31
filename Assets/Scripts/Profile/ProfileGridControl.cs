@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProfileGridControl : MonoBehaviour
 {
@@ -48,6 +49,22 @@ public class ProfileGridControl : MonoBehaviour
         _profileButtonControls[newProfile1].AssignProfile(newProfile1);
         _profileButtonControls[newProfile2] = _profileButtonControls[profile2];
         _profileButtonControls[newProfile2].AssignProfile(newProfile2);
+    }
+
+    public void ActivateGridButtons()
+    {
+        foreach (var kvp in _profileButtonControls)
+        {
+            kvp.Value.GetComponent<Button>().interactable = true;
+        }
+    }
+    
+    public void DisableGridButtons()
+    {
+        foreach (var kvp in _profileButtonControls)
+        {
+            kvp.Value.GetComponent<Button>().interactable = false;
+        }
     }
 
     private void ClearExistingProfiles()

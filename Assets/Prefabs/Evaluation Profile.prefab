@@ -542,10 +542,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.4
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -831,5 +831,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b298914aad04eafb6fe11fe53483e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profilePlaceholder: {fileID: 21300000, guid: 1fc78525e45c3754599c2c3096d65cda, type: 3}
-  emptySprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  nameText: {fileID: 6032347971437315364}
+  BackgroundImageComponent: {fileID: 2008278490002361504}
+  BodyImageComponent: {fileID: 8273113797320701651}
+  EyesImageComponent: {fileID: 1362873152920268386}
+  FacialHairImageComponent: {fileID: 9156218133553225553}
+  HairImageComponent: {fileID: 3945833316114943623}
+  HatImageComponent: {fileID: 1421323391066822537}
+  HeadImageComponent: {fileID: 6565947935363805189}
+  MouthImageComponent: {fileID: 7031520543623876530}

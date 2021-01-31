@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 625467b81213cc84a8379935479c75e1, type: 3}
-  m_Name: Cats
+  m_Name: Metal Music
   m_EditorClassIdentifier: 
   uniqueCallouts:
-  - 'Cats! Cats! CATS! '
-  - I think my cat is trying to kill me. I love him so much!
-  - 'I named my cat Stockholm Syndrome. '
-  - I'm allergic to cats that's why I ONLY own 5.
-  - Cats are better than dogs!
+  - I love music that is loud, angry and sad!
+  - Band logos must be illegible!
+  - Vocals must sound like a dying animal
+  - Music about Viking and Goblin problems
+  - Metal is Life! \m/

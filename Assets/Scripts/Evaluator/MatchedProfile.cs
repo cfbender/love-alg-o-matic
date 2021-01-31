@@ -3,15 +3,14 @@ using System.Linq;
 
 public class MatchedProfile
 {
-    public Profile matchedProfile1;
-    public Profile matchedProfile2;
-    public List<InterestTemplate> commonInterests;
+    public Profile Profile1;
+    public Profile Profile2;
+    public EvaluationResult EvaluationResult;
 
-    public MatchedProfile(Profile profile1, Profile profile2)
+    public MatchedProfile(Profile profile1, Profile profile2, EvaluationResult evaluationResult)
     {
-        matchedProfile1 = profile1;
-        matchedProfile2 = profile2;
-
-        commonInterests = profile1.Interests.Where(interest => profile2.Interests.Contains(interest)).ToList();
+        Profile1 = profile1;
+        Profile2 = profile2;
+        EvaluationResult = evaluationResult;
     }
 }

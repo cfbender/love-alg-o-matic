@@ -71,6 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 Assets/Resources/DOTweenSettings.asset
+Assets/Resources/DOTweenSettings.asset.meta
 Assets/Plugins/Demigiant/DOTweenPro/DOTweenAnimation.cs
 Assets/Plugins/Demigiant/DOTweenPro/DOTweenTextMeshPro.cs
 Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.csGG

@@ -30,7 +30,7 @@ public class EvaluationManager : MonoBehaviour
         var result = Managers.EvaluationManager.GetMatches(profile1, profile2);
         var matchCount = result.Matches.Count;
         loveMeterControl.UpdateLoveMeter(result, matchCount);
-        Managers.ScoreManager.AddMatchedPair(profile1, profile2, matchCount < 3);
+        Managers.ScoreManager.AddMatchedPair(profile1, profile2, result, matchCount < 3);
 
         return matchCount;
     }
