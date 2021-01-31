@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99.4
+  m_fontSize: 94.35
   m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6534,6 +6534,23 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2812ac1b315b5794bb553cbfd126423a, type: 3}
   - {fileID: 8300000, guid: fc9d71d1b35b97f47a52b8466a250a57, type: 3}
   - {fileID: 8300000, guid: d1ce57026e566614e80cba52d21ad7dd, type: 3}
+  va_failedMatch:
+  - {fileID: 8300000, guid: aa8882055be97d04cb4040ce29bf4694, type: 3}
+  - {fileID: 8300000, guid: f2f4292e1bdee1642a224dcb46b24e4b, type: 3}
+  - {fileID: 8300000, guid: efd528132015c9c4bbedc981f4897e50, type: 3}
+  - {fileID: 8300000, guid: 1d5ca7347113b7540b2fe7500e5e1a2d, type: 3}
+  - {fileID: 8300000, guid: d4990dfbf6693b34184efac2f7633c9c, type: 3}
+  - {fileID: 8300000, guid: 4bc67252e83f5eb4ba7f7bee2a87b9ce, type: 3}
+  - {fileID: 8300000, guid: ed3e67b505e54fc4c8146d26847acec4, type: 3}
+  - {fileID: 8300000, guid: 31227d1ab2102d249bf46e10861dfdd6, type: 3}
+  - {fileID: 8300000, guid: 0b63d341c56563e4d9adf3e412285d48, type: 3}
+  va_successfulMatch:
+  - {fileID: 8300000, guid: 6b32957345381b24c8241bfa7f8668bf, type: 3}
+  - {fileID: 8300000, guid: 63d7f36735d4511428c4dba6129aec0e, type: 3}
+  - {fileID: 8300000, guid: 87c9093abda736547901513b5d8d8763, type: 3}
+  - {fileID: 8300000, guid: 93f155ae1e5a05e46af76eea1e51083f, type: 3}
+  - {fileID: 8300000, guid: de35574c005401c46aeba4107f26af9d, type: 3}
+  - {fileID: 8300000, guid: 4353df04b9080e449a9cea175c77a325, type: 3}
 --- !u!1 &1108579475
 GameObject:
   m_ObjectHideFlags: 0
