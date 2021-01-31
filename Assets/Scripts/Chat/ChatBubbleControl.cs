@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,15 +8,20 @@ public class ChatBubbleControl : MonoBehaviour
 {
     public Vector2 BackgroundOffset;
     public float DestroyDelay = 3f;
+    public Profile Profile;
     private Image _backgroundImage;
     private TextMeshProUGUI _chatTextMesh;
 
     private void Start()
     {
         StartCoroutine(DelayedDestroy());
-        Managers.GameManager.ChatBubbleAdded();
     }
 
+    public void AssignProfile(Profile profile)
+    {
+        Profile = profile;
+    }
+    
     public void AssignText(string text)
     {
         _backgroundImage = GetComponentInChildren<Image>();
@@ -28,11 +34,16 @@ public class ChatBubbleControl : MonoBehaviour
         _backgroundImage.rectTransform.sizeDelta = textSize + BackgroundOffset;
     }
 
+    public void Destroy()
+    {
+        Managers.GameManager.RemoveChatBubble(Profile);
+        Destroy(gameObject);
+    }
+
     private IEnumerator DelayedDestroy()
     {
         yield return new WaitForSeconds(DestroyDelay);
 
-        Managers.GameManager.ChatBubbleRemoved();
-        Destroy(gameObject);
+        Destroy();
     }
 }
