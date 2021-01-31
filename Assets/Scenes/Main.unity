@@ -6375,7 +6375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music_pre: {fileID: 0}
   music_start: {fileID: 0}
-  music_during: {fileID: 0}
+  music_during: {fileID: 8300000, guid: 3f335e92d2beebe4e9099b648ca68b99, type: 3}
   music_tallying: {fileID: 0}
   music_failure: {fileID: 0}
   music_success: {fileID: 0}
@@ -6391,7 +6391,7 @@ MonoBehaviour:
   sfx_ChatBubble_convo: {fileID: 0}
   sfx_FailedMatch: {fileID: 8300000, guid: cb8bef89af9f3f04fbb0ac95a06a6b73, type: 3}
   sfx_SuccessfulMatch: {fileID: 8300000, guid: b6b5c853073a61b4ebc74b7c86e0dd76, type: 3}
-  sfx_TickTock: {fileID: 0}
+  sfx_TickTock: {fileID: 8300000, guid: e857c14c530ccc74884ed9380e6d0c38, type: 3}
 --- !u!1 &1108579475
 GameObject:
   m_ObjectHideFlags: 0
