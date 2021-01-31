@@ -15,12 +15,21 @@ public class ScoreScreenControl : MonoBehaviour
 
     private bool _scoreScreenActive = false;
     private float _profileDisplayTimer;
+
     public void InitializeScoreScreen()
     {
         bestStreakText.text = $"Best Streak: {Managers.ScoreManager.longestSuccessStreak} matches";
         worstStreakText.text = $"Worst Streak: {Managers.ScoreManager.longestMissedStreak} mismatches";
         gameObject.SetActive(true);
-        DisplayMatchedPair();
+        var successfulMatches = Managers.ScoreManager.matchCount > 0;
+        if (successfulMatches)
+        {
+            DisplayMatchedPair();
+        }
+
+        evaluationProfileControl1.gameObject.SetActive(successfulMatches);
+        evaluationProfileControl2.gameObject.SetActive(successfulMatches);
+        loveMeterControl.gameObject.SetActive(successfulMatches);
         _scoreScreenActive = true;
         _profileDisplayTimer = 0;
     }

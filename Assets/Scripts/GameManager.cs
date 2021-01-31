@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void BeginNewRound()
     {
         Managers.ScoreManager.HideFinalScoreScreen();
+        Managers.ScoreManager.ResetScores();
         StartCoroutine(DelayedProfileInit());
         ReadyOverlay.SetActive(true);
         ReadyScreenActive = true;
